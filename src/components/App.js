@@ -1,14 +1,12 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from '../react-store/store';
+import Signup from '../containers/Signup';
 
 function App() {
   return (
-    <Provider store={store}>
-      <div>
-        <h1>Hello World</h1>
-      </div>
-    </Provider>
+    <div>
+      <h1>Hello World</h1>
+      <Signup />
+    </div>
   );
 }
 
