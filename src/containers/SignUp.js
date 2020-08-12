@@ -93,7 +93,7 @@ const SignUp = () => {
               className="signup-input"
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Name:"
               value={name}
               onChange={handleChange}
               required
@@ -102,7 +102,7 @@ const SignUp = () => {
               className="signup-input"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Email:"
               value={email}
               onChange={handleChange}
               required
@@ -111,7 +111,7 @@ const SignUp = () => {
               className="signup-input"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password:"
               value={password}
               onChange={handleChange}
               required
@@ -120,7 +120,7 @@ const SignUp = () => {
               className="signup-input"
               type="password"
               name="confirmPassword"
-              placeholder="Consfirm Password"
+              placeholder="Confirm password:"
               value={confirmPassword}
               onChange={handleChange}
               required

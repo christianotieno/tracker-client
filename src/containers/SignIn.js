@@ -79,10 +79,9 @@ const SignIn = () => {
           <form onSubmit={handleSubmit}>
             <input
               className="signin-input"
-
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Email:"
               value={email}
               onChange={handleChange}
               required
@@ -92,7 +91,7 @@ const SignIn = () => {
 
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password:"
               value={password}
               onChange={handleChange}
               required
