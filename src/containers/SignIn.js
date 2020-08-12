@@ -29,7 +29,7 @@ const SignIn = () => {
   const [
     signInCoverClass,
     setSignInCoverClass,
-  ] = useState('login-loading-cover');
+  ] = useState('signin-loading-cover');
 
   const [
     signInError,
@@ -43,7 +43,7 @@ const SignIn = () => {
 
   useEffect(() => {
     setSignInError(error.signInError);
-    setSignInCoverClass('login-loading-cover');
+    setSignInCoverClass('signin-loading-cover');
   }, [error]);
 
   const handleChange = event => {
@@ -56,7 +56,7 @@ const SignIn = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    setSignInCoverClass('login-loading-cover open');
+    setSignInCoverClass('signin-loading-cover open');
     setSignInError(null);
     dispatch(removeErrors());
 
@@ -70,15 +70,15 @@ const SignIn = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-page-cover">
-        <div className="login-page-main">
-          <h1>Sign In</h1>
+    <div className="signin-page">
+      <div className="signin-page-cover">
+        <div className="signin-page-main">
+          <h1>Sign in</h1>
           <p>Already have an account? Log in</p>
 
           <form onSubmit={handleSubmit}>
             <input
-              className="login-input"
+              className="signin-input"
 
               type="email"
               name="email"
@@ -88,7 +88,7 @@ const SignIn = () => {
               required
             />
             <input
-              className="login-input"
+              className="signin-input"
 
               type="password"
               name="password"
@@ -103,7 +103,7 @@ const SignIn = () => {
             <input
               type="submit"
               value="Sign in"
-              className="login-btn"
+              className="signin-btn"
             />
             <div className={signInCoverClass}>
               <Loader

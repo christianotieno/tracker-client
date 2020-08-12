@@ -1,0 +1,13 @@
+.schedule-header {
+  background-color: #42b5e8;
+  color: #f1f2f4;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header-text {
+  font-family: Helvetica;
+  font-weight: bold;
+}

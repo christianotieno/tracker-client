@@ -2,15 +2,19 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
-import Navbar from './Navbar';
+import Home from './Home';
+import ScheduleHeader from './ScheduleHeader';
+import TaskHeader from './TaskHeader';
 
 function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+        <ScheduleHeader />
+        <TaskHeader />
         <SignUp />
         <SignIn />
+        <Home />
       </Router>
     </div>
   );

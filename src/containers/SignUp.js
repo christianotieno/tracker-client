@@ -32,7 +32,7 @@ const SignUp = () => {
   const [
     signupCoverClass,
     setSignupCoverClass,
-  ] = useState('login-loading-cover');
+  ] = useState('signin-loading-cover');
 
   const [
     signupError,
@@ -54,7 +54,7 @@ const SignUp = () => {
 
   useEffect(() => {
     setSignupError(error.signupError);
-    setSignupCoverClass('login-loading-cover');
+    setSignupCoverClass('signin-loading-cover');
   }, [error]);
 
   const handleChange = event => {
@@ -67,7 +67,7 @@ const SignUp = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    setSignupCoverClass('login-loading-cover open');
+    setSignupCoverClass('signin-loading-cover open');
     setSignupError(null);
     dispatch(removeErrors());
 
@@ -83,11 +83,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-page-cover">
-        <div className="login-page-main">
-          <h1>Sign Up</h1>
-          <p>Sign Up to set and track your daily schedules</p>
+    <div className="signin-page">
+      <div className="signin-page-cover">
+        <div className="signin-page-main">
+          <h1>Sign up</h1>
+          <p>Sign up to set and track your daily schedules</p>
           <form onSubmit={handleSubmit}>
             <input
               className="signup-input"
@@ -117,6 +117,7 @@ const SignUp = () => {
               required
             />
             <input
+              className="signup-input"
               type="password"
               name="confirmPassword"
               placeholder="Consfirm Password"
@@ -129,6 +130,7 @@ const SignUp = () => {
             <input
               type="submit"
               value="Register Account"
+              className="signup-btn"
             />
             <div className={signupCoverClass}>
               <Loader

@@ -1,0 +1,13 @@
+.task-header {
+  background-color: #f0f8ff;
+  color: #5b8092;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header-text {
+  font-family: Helvetica;
+  font-weight: bold;
+}
