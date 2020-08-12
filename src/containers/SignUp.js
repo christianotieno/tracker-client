@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { Loader } from 'react-loader-spinner';
-import { registerUser } from '../actions/auth';
-import { removeErrors } from '../actions';
+import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+import { removeErrors } from '../actions/index';
+import { signUpUser } from '../actions/auth';
+
+import '../styles/sign_in.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const SignUp = () => {
   const initialSignUpState = {
@@ -12,17 +16,35 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
   };
-  const error = useSelector(store => store.error);
 
-  const [signUpCredentials, setSignUpCredentials] = useState(initialSignUpState);
-  const {
-    name, email, password, confirmPassword,
-  } = signUpCredentials;
+  const error = useSelector(
+    store => store.error,
+  );
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [signupCoverClass, setSignupCoverClass] = useState('login-loading-cover');
-  const [signupError, setSignupError] = useState(null);
+  const [
+    signUpCredentials,
+    setSignUpCredentials,
+  ] = useState(initialSignUpState);
+
+  const [
+    signupCoverClass,
+    setSignupCoverClass,
+  ] = useState('login-loading-cover');
+
+  const [
+    signupError,
+    setSignupError,
+  ] = useState(null);
+
+  const {
+    name,
+    email,
+    password,
+    confirmPassword,
+  } = signUpCredentials;
 
   const errorCheck = Object.keys(error).length;
 
@@ -56,63 +78,68 @@ const SignUp = () => {
       confirmPassword,
     };
 
-    registerUser(user, history)(dispatch);
+    signUpUser(user, history)(dispatch);
     setSignUpCredentials(initialSignUpState);
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <p>Sign Up to set and track your daily schedules</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Consfirm Password"
-          value={confirmPassword}
-          onChange={handleChange}
-          required
-        />
+    <div className="login-page">
+      <div className="login-page-cover">
+        <div className="login-page-main">
+          <h1>Sign Up</h1>
+          <p>Sign Up to set and track your daily schedules</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="signup-input"
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="signup-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="signup-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Consfirm Password"
+              value={confirmPassword}
+              onChange={handleChange}
+              required
+            />
 
-        {
-          signupError && <div>{signupError}</div>
-        }
-
-        <input
-          type="submit"
-          value="Register Account"
-        />
-        <div className={signupCoverClass}>
-          <Loader
-            type="Oval"
-            color="rgb(0,0,0)"
-          />
+            { signupError && <div className="error">{signupError}</div>}
+            <input
+              type="submit"
+              value="Register Account"
+            />
+            <div className={signupCoverClass}>
+              <Loader
+                type="Oval"
+                color="rgb(0,0,0)"
+              />
+            </div>
+          </form>
+          <Link className="auth-redirect" to="signin">Sign in</Link>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

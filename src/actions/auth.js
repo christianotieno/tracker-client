@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { addSignUpError, addLogInError } from './index';
+import { addSignUpError, addSignInError } from './index';
 
-const postSignUp = 'http://localhost:4000/signup';
-const postSignIn = 'http://localhost:4000/auth/login';
+const signUpUrl = 'http://localhost:4000/signup';
+const signInUrl = 'http://localhost:4000/auth/login';
 
-const registerUser = (user, history) => dispatch => {
-  axios.post(postSignUp, user)
+const signUpUser = (user, history) => dispatch => {
+  axios.post(signUpUrl, user)
     .then(res => {
       dispatch({
         type: 'SIGNUP_SUCCESSFUL',
@@ -17,8 +17,8 @@ const registerUser = (user, history) => dispatch => {
     });
 };
 
-const loginUser = (user, history) => dispatch => {
-  axios.post(postSignIn, user)
+const signInUser = (user, history) => dispatch => {
+  axios.post(signInUrl, user)
     .then(res => {
       dispatch({
         type: 'LOGIN_SUCCESSFUL',
@@ -26,8 +26,8 @@ const loginUser = (user, history) => dispatch => {
       });
       history.push('/');
     }).catch(() => {
-      dispatch(addLogInError('Incorrect email or password!'));
+      dispatch(addSignInError('Incorrect email or password!'));
     });
 };
 
-export { registerUser, loginUser };
+export { signUpUser, signInUser };

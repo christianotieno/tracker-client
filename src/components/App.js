@@ -1,13 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
+import Navbar from './Navbar';
 
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
-      <SignUp />
-      <SignIn />
+      <Router>
+        <Navbar />
+        <SignUp />
+        <SignIn />
+      </Router>
     </div>
   );
 }
