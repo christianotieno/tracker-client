@@ -5,14 +5,15 @@ import { Loader } from 'react-loader-spinner';
 import { registerUser } from '../actions/auth';
 import { removeErrors } from '../actions';
 
-const Signup = () => {
+const SignUp = () => {
   const initialSignUpState = {
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   };
-  const error = useSelector(state => state.error);
+  const error = useSelector(store => store.error);
+
   const [signUpCredentials, setSignUpCredentials] = useState(initialSignUpState);
   const {
     name, email, password, confirmPassword,
@@ -116,4 +117,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;
