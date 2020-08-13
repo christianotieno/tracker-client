@@ -1,10 +1,12 @@
-const REMOVE_ERRORS = 'REMOVE_ERRORS';
-const ADD_LOGIN_ERROR = 'ADD_LOGIN_ERROR';
-const ADD_SIGNUP_ERROR = 'ADD_SIGNUP_ERROR';
+import {
+  ADD_SIGNIN_ERROR,
+  ADD_SIGNUP_ERROR,
+  REMOVE_ERRORS,
+} from '../actions/index';
 
 const errorReducer = (state = {}, action) => {
   switch (action.type) {
-    case ADD_LOGIN_ERROR:
+    case ADD_SIGNIN_ERROR:
       return {
         loginError: action.payload,
       };

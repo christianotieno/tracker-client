@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import authReducer from './auth';
-import errorReducer from './error';
 import scheduleReducer from './schedulesReducer';
+import taskReducer from './taskReducer';
+import errorReducer from './error';
+import authReducer from './auth';
 
 const rootReducer = () => combineReducers({
-  auth: authReducer,
-  error: errorReducer,
   schedule: scheduleReducer,
+  error: errorReducer,
+  task: taskReducer,
+  auth: authReducer,
 });
 
 export default rootReducer;
