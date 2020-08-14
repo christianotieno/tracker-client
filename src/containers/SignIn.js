@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import { removeErrors } from '../actions/index';
 import { signInUser } from '../actions/auth';
-import '../styles/sign_in.css';
+import '../styles/auth.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const SignIn = () => {

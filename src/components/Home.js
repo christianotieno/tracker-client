@@ -1,7 +1,7 @@
 import React from 'react';
 import ScheduleHeader from './ScheduleHeader';
 import TaskHeader from './TaskHeader';
-import '../styles/home.css';
+import '../styles/index.css';
 
 const Home = () => (
   <div className="home-div">

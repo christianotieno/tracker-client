@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/schedule_header.css';
+import '../styles/index.css';
 
 function ScheduleHeader() {
   return (

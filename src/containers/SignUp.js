@@ -6,7 +6,7 @@ import Loader from 'react-loader-spinner';
 import { removeErrors } from '../actions/index';
 import { signUpUser } from '../actions/auth';
 
-import '../styles/sign_in.css';
+import '../styles/auth.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const SignUp = () => {
@@ -66,7 +66,6 @@ const SignUp = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
     setSignupCoverClass('signin-loading-cover open');
     setSignupError(null);
     dispatch(removeErrors());

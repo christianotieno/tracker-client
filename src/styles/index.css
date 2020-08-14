@@ -1,0 +1,53 @@
+.home-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  font-family: Helvetica;
+}
+
+.main-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+}
+.content {
+  background-color: #fff;
+  padding: 1%;
+  margin: 1%;
+  height: 8vh;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #92a7b3;
+}
+
+.schedule-header {
+  background-color: #42b5e8;
+  color: #f1f2f4;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.header-text {
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.task-header {
+  background-color: #f0f8ff;
+  color: #5b8092;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.header-text {
+  font-family: Helvetica;
+  font-weight: bold;
+}

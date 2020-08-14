@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/task_header.css';
+import '../styles/index.css';
 
 function TaskHeader() {
   return (
