@@ -1,11 +1,7 @@
-import {
-
-  GET_TASKS,
-  CREATE_TASK,
-  DELETE_TASK,
-  UPDATE_TASK,
-
-} from '../actions/index';
+const GET_TASKS = 'GET_TASKS';
+const CREATE_TASK = 'CREATE_TASK';
+const DELETE_TASK = 'DELETE_TASK';
+const UPDATE_TASK = 'UPDATE_TASK';
 
 let objectIndex = {};
 let updateElement = {};

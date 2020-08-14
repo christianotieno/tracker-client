@@ -8,7 +8,7 @@ const Home = () => (
     <ScheduleHeader />
     <TaskHeader />
     <div className="main-content">
-      {/* <ul className="main-content">
+      <ul className="main-content">
         <li>
           <div className="content">
             Personal Development
@@ -34,7 +34,7 @@ const Home = () => (
             Reads
           </div>
         </li>
-      </ul> */}
+      </ul>
       <p>Please click on the + button to add your schedules</p>
     </div>
   </div>

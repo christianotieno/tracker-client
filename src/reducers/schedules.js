@@ -1,11 +1,7 @@
-import {
-
-  GET_SCHEDULES,
-  CREATE_SCHEDULE,
-  DELETE_SCHEDULE,
-  UPDATE_SCHEDULE,
-
-} from '../actions/index';
+const GET_SCHEDULES = 'GET_SCHEDULES';
+const CREATE_SCHEDULE = 'CREATE_SCHEDULE';
+const DELETE_SCHEDULE = 'DELETE_SCHEDULE';
+const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
 
 let updateObject = {};
 let objectIndex = {};

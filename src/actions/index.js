@@ -1,22 +1,23 @@
-export const GET_TASK = 'GET_TASK';
-export const GET_TASKS = 'GET_TASKS';
-export const CREATE_TASK = 'CREATE_TASK';
-export const UPDATE_TASK = 'UPDATE_TASK';
-export const DELETE_TASK = 'DELETE_TASK';
-export const GET_TASKS_ERROR = 'GET_TASK_ERROR';
-export const CREATE_TASK_ERROR = 'CREATE_TASK_ERROR';
+const GET_TASK = 'GET_TASK';
+const GET_TASKS = 'GET_TASKS';
+const CREATE_TASK = 'CREATE_TASK';
+const UPDATE_TASK = 'UPDATE_TASK';
+const DELETE_TASK = 'DELETE_TASK';
+const GET_TASKS_ERROR = 'GET_TASK_ERROR';
+const CREATE_TASK_ERROR = 'CREATE_TASK_ERROR';
 
-export const GET_SCHEDULE = 'GET_SCHEDULE';
-export const GET_SCHEDULES = 'GET_SCHEDULES';
-export const DELETE_SCHEDULE = 'DELETE_SCHEDULE';
-export const CREATE_SCHEDULE = 'CREATE_SCHEDULE';
-export const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
-export const GET_SCHEDULES_ERROR = 'GET_SCHEDULES_ERROR';
-export const CREATE_SCHEDULE_ERROR = 'CREATE_SCHEDULE_ERROR';
+const CLEAR_SCHEDULE = 'CLEAR_SCHEDULE';
+const GET_SCHEDULE = 'GET_SCHEDULE';
+const GET_SCHEDULES = 'GET_SCHEDULES';
+const DELETE_SCHEDULE = 'DELETE_SCHEDULE';
+const CREATE_SCHEDULE = 'CREATE_SCHEDULE';
+const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
+const GET_SCHEDULES_ERROR = 'GET_SCHEDULES_ERROR';
+const CREATE_SCHEDULE_ERROR = 'CREATE_SCHEDULE_ERROR';
 
-export const REMOVE_ERRORS = 'REMOVE_ERRORS';
-export const ADD_SIGNIN_ERROR = 'ADD_LOGIN_ERROR';
-export const ADD_SIGNUP_ERROR = 'ADD_SIGNUP_ERROR';
+const REMOVE_ERRORS = 'REMOVE_ERRORS';
+const ADD_SIGNIN_ERROR = 'ADD_SIGN_ERROR';
+const ADD_SIGNUP_ERROR = 'ADD_SIGNUP_ERROR';
 
 export const addSignInError = error => ({
   type: ADD_SIGNIN_ERROR,
@@ -40,6 +41,10 @@ export const getSchedules = schedules => ({
 export const getSchedule = schedule => ({
   type: GET_SCHEDULE,
   payload: schedule,
+});
+
+export const clearSchedule = () => ({
+  type: CLEAR_SCHEDULE,
 });
 
 export const patchSchedule = id => ({

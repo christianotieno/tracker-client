@@ -3,7 +3,6 @@ import axios from 'axios';
 import {
 
   getSchedule,
-  postSchedule,
   getSchedules,
   patchSchedule,
   deleteSchedule,
@@ -43,31 +42,42 @@ export const fetchSchedule = () => dispatch => {
   }).catch(error => error);
 };
 
-export const createSchedule = () => dispatch => {
+export const createSchedule = id => dispatch => {
   axios.post(
     url1,
+    {
+      schedule_id: id,
+    },
     headers,
-  ).then(response => {
-    dispatch(postSchedule(response.data));
-  }).catch(error => {
+  ).catch(error => {
     dispatch(createScheduleError(error.message));
   });
 };
 
-export const updateSchedule = () => dispatch => {
+export const updateSchedule = id => dispatch => {
   axios.patch(
-    url2,
+    url1,
+    {
+      schedule_id: id,
+    },
     headers,
   ).then(response => {
     dispatch(patchSchedule(response.data));
   }).catch(error => error);
 };
 
-export const removeSchedule = () => dispatch => {
+export const removeSchedule = id => dispatch => {
   axios.delete(
-    url2,
-    headers,
+    url1,
+    {
+      headers,
+      data: {
+        schedule_id: id,
+      },
+    },
   ).then(response => {
-    dispatch(deleteSchedule(response.data));
+    if (response.status === 200) {
+      dispatch(deleteSchedule(id));
+    }
   }).catch(error => error);
 };
