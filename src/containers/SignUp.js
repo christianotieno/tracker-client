@@ -1,148 +1,154 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
-import { removeErrors } from '../actions/index';
-import { signUpUser } from '../actions/auth';
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { createUser } from '../actions/auth';
 
-import '../styles/auth.css';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-
-const SignUp = () => {
-  const initialSignUpState = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  };
-
-  const error = useSelector(
-    store => store.error,
-  );
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const [
-    signUpCredentials,
-    setSignUpCredentials,
-  ] = useState(initialSignUpState);
-
-  const [
-    signupCoverClass,
-    setSignupCoverClass,
-  ] = useState('signin-loading-cover');
-
-  const [
-    signupError,
-    setSignupError,
-  ] = useState(null);
-
-  const {
-    name,
-    email,
-    password,
-    confirmPassword,
-  } = signUpCredentials;
-
-  const errorCheck = Object.keys(error).length;
-
-  useEffect(() => {
-    dispatch(removeErrors());
-  }, [errorCheck, dispatch]);
-
-  useEffect(() => {
-    setSignupError(error.signupError);
-    setSignupCoverClass('signin-loading-cover');
-  }, [error]);
-
-  const handleChange = event => {
-    setSignUpCredentials({
-      ...signUpCredentials,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    setSignupCoverClass('signin-loading-cover open');
-    setSignupError(null);
-    dispatch(removeErrors());
-
-    const user = {
-      name,
-      email,
-      password,
-      confirmPassword,
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      password: '',
+      password_confirmation: '',
+      errors: '',
     };
+  }
 
-    signUpUser(user, history)(dispatch);
-    setSignUpCredentials(initialSignUpState);
-  };
+  handleChangeName = e => {
+    this.setState({
+      name: e.target.value,
+    });
+  }
 
-  return (
-    <div className="signin-page">
-      <div className="signin-page-cover">
-        <div className="signin-page-main">
-          <h1>Sign up</h1>
-          <p>Sign up to set and track your daily schedules</p>
-          <form onSubmit={handleSubmit}>
-            <input
-              className="signup-input"
-              type="text"
-              name="name"
-              placeholder="Name:"
-              value={name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              className="signup-input"
-              type="email"
-              name="email"
-              placeholder="Email:"
-              value={email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              className="signup-input"
-              type="password"
-              name="password"
-              placeholder="Password:"
-              value={password}
-              onChange={handleChange}
-              required
-            />
-            <input
-              className="signup-input"
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm password:"
-              value={confirmPassword}
-              onChange={handleChange}
-              required
-            />
+  handleChangePassword = e => {
+    this.setState({
+      password: e.target.value,
+    });
+  }
 
-            { signupError && <div className="error">{signupError}</div>}
-            <input
-              type="submit"
-              value="Register Account"
-              className="signup-btn"
-            />
-            <div className={signupCoverClass}>
-              <Loader
-                type="Oval"
-                color="rgb(0,0,0)"
-              />
-            </div>
-          </form>
-          <Link className="auth-redirect" to="signin">Sign in</Link>
-        </div>
-      </div>
-    </div>
-  );
+  handleChangePasswordConfirm = e => {
+    this.setState({
+      password_confirmation: e.target.value,
+    });
+  }
+
+   handleSubmit= async e => {
+     e.preventDefault();
+     const {
+       name,
+       password,
+       password_confirmation,
+     } = this.state;
+
+     const { createUser } = this.props;
+
+     const response = await createUser({
+       name,
+       password,
+       password_confirmation,
+     });
+     if (response && response.status === 200) {
+       const { history } = this.props;
+       history.push('/');
+     } else {
+       const { error } = this.props;
+       this.setState({
+         errors: error,
+       });
+     }
+   }
+
+   handleErrors = () => {
+     const { errors } = this.state;
+     setTimeout(() => this.setState(
+       { errors: '' },
+     ), 3000);
+     return (
+       <ul>
+         {errors.map(
+           error => <li key={error}>{error}</li>,
+         )}
+       </ul>
+     );
+   }
+
+   render() {
+     const {
+       name,
+       errors,
+       password,
+       password_confirmation,
+     } = this.state;
+
+     return (
+       <section className="signup">
+         <div className="errors-div">
+           {errors ? this.handleErrors() : null}
+         </div>
+         <h2>Sign Up</h2>
+         <form onSubmit={this.handleSubmit}>
+           <input
+             placeholder="Name"
+             type="text"
+             name="name"
+             value={name}
+             onChange={this.handleChangeName}
+             required
+           />
+           <input
+             placeholder="Password"
+             type="password"
+             name="password"
+             value={password}
+             onChange={this.handleChangePassword}
+             required
+           />
+           <input
+             placeholder="Confirm Password"
+             type="password"
+             name="passwordConfirmation"
+             value={password_confirmation}
+             onChange={this.handleChangePasswordConfirm}
+             required
+           />
+           <button placeholder="submit" type="submit">
+             Sign In
+           </button>
+         </form>
+       </section>
+     );
+   }
+}
+
+const mapStateToProps = state => ({
+  user: state.user,
+  isSignIn: state.user.isSignIn,
+  error: state.user.error,
+});
+
+const mapDispatchToProps = dispatch => ({
+  createUser: data => dispatch(createUser(data)),
+});
+
+SignUp.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  createUser: PropTypes.func.isRequired,
+  error: PropTypes.instanceOf(Array),
+
 };
 
-export default SignUp;
+SignUp.defaultProps = {
+  error: [],
+  history: {},
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(SignUp),
+);

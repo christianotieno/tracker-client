@@ -1,15 +1,19 @@
-const GET_TASKS = 'GET_TASKS';
-const CREATE_TASK = 'CREATE_TASK';
-const DELETE_TASK = 'DELETE_TASK';
-const UPDATE_TASK = 'UPDATE_TASK';
+import {
+
+  CREATE_TASK,
+  DELETE_TASK,
+  UPDATE_TASK,
+  DISPLAY_FETCHED_TASKS,
+
+} from '../actions/task';
 
 let objectIndex = {};
-let updateElement = {};
 let updatedState = [];
+let updateElement = {};
 
-export default function taskReducer(state = [], action) {
+const taskReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_TASKS:
+    case DISPLAY_FETCHED_TASKS:
       return action.payload;
 
     case CREATE_TASK:
@@ -27,7 +31,10 @@ export default function taskReducer(state = [], action) {
 
       updateElement = {
         ...state[objectIndex],
+        name: action.payload.name,
+        date: action.payload.date,
         done: action.payload.done,
+        notes: action.payload.notes,
       };
 
       updatedState = [
@@ -37,7 +44,10 @@ export default function taskReducer(state = [], action) {
       ];
 
       return updatedState;
+
     default:
       return state;
   }
-}
+};
+
+export default taskReducer;

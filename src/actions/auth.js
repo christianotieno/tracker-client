@@ -1,39 +1,84 @@
 import axios from 'axios';
-import { addSignUpError, addSignInError } from './index';
 
-const signUpUrl = 'http://localhost:4000/signup';
-const signInUrl = 'http://localhost:4000/auth/login';
+export const SIGNED_IN = 'SIGNED_IN';
+export const SIGNIN_USER = 'SIGNIN_USER';
+export const CREATE_USER = 'CREATE_USER';
+export const SIGNOUT_USER = 'SIGNOUT_USER';
+export const SIGNED_IN_ERROR = 'SIGNED_IN_ERROR';
+export const SIGNIN_USER_ERROR = 'SIGNIN_USER_ERROR';
+export const CREATE_USER_ERROR = 'CREATE_USER_ERROR';
 
-export const signUpUser = (user, history) => dispatch => {
-  axios.post(
-    signUpUrl,
-    user,
-  ).then(response => {
+export const createUser = newUser => async dispatch => {
+  let response = {};
+  try {
+    response = await axios({
+      method: 'POST',
+      url: 'http://localhost:4000/users',
+      data: { user: newUser },
+      crossdomain: true,
+      withCredentials: true,
+    });
     dispatch({
-      type: 'SIGNUP_SUCCESSFUL',
+      type: CREATE_USER,
       payload: {
-        token: response.data.auth_token,
+        ...newUser,
+        id: response.data.user.id ? response.data.user.id : null,
       },
     });
-    history.push('/');
-  }).catch(() => {
-    dispatch(addSignUpError('Sign up failed, please try again'));
-  });
+    return response;
+  } catch (error) {
+    dispatch({ type: CREATE_USER_ERROR, payload: response.data.errors });
+    return error;
+  }
 };
 
-export const signInUser = (user, history) => dispatch => {
-  axios.post(
-    signInUrl,
-    user,
-  ).then(response => {
+export const signInUser = user => async dispatch => {
+  let response = {};
+  try {
+    response = await axios.post('http://localhost:4000/login', { user }, { withCredentials: true });
     dispatch({
-      type: 'LOGIN_SUCCESSFUL',
-      payload: {
-        token: response.data.auth_token,
-      },
+      type: SIGNIN_USER,
+      payload: response.data,
     });
-    history.push('/');
-  }).catch(() => {
-    dispatch(addSignInError('Incorrect email or password!'));
-  });
+    return response;
+  } catch (error) {
+    dispatch({
+      type: SIGNIN_USER_ERROR,
+      payload: error,
+    });
+    return error;
+  }
+};
+
+export const signOutUser = () => async dispatch => {
+  try {
+    dispatch({ type: SIGNOUT_USER, payload: {} });
+    const response = await axios({
+      method: 'DELETE',
+      url: 'http://localhost:4000/logout',
+      data: { user: {} },
+      crossdomain: true,
+      withCredentials: true,
+    });
+    return response;
+  } catch (error) { return (error); }
+};
+
+export const signInStatus = () => dispatch => {
+  axios.get('http://localhost:4000/logged_in',
+    { withCredentials: true })
+    .then(response => (
+      response.data))
+    .then(data => {
+      dispatch({
+        type: SIGNED_IN,
+        payload: data,
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: SIGNED_IN_ERROR,
+        payload: error,
+      });
+    });
 };

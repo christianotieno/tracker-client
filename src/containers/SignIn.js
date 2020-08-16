@@ -1,121 +1,169 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
-import { removeErrors } from '../actions/index';
+import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { signInUser } from '../actions/auth';
-import '../styles/auth.css';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-const SignIn = () => {
-  const initialSignInState = {
-    email: '',
-    password: '',
-  };
-
-  const error = useSelector(
-    store => store.error,
-  );
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const [
-    signInCredentials,
-    setSignInCredentials,
-  ] = useState(initialSignInState);
-
-  const [
-    signInCoverClass,
-    setSignInCoverClass,
-  ] = useState('signin-loading-cover');
-
-  const [
-    signInError,
-    setSignInError,
-  ] = useState(null);
-
-  const {
-    email,
-    password,
-  } = signInCredentials;
-
-  useEffect(() => {
-    setSignInError(error.signInError);
-    setSignInCoverClass('signin-loading-cover');
-  }, [error]);
-
-  const handleChange = event => {
-    setSignInCredentials({
-      ...signInCredentials,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    setSignInCoverClass('signin-loading-cover open');
-    setSignInError(null);
-    dispatch(removeErrors());
-
-    const user = {
-      email,
-      password,
+class SignIn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      password: '',
+      errors: [],
     };
+  }
 
-    signInUser(user, history)(dispatch);
-    signInCredentials(initialSignInState);
-  };
+  componentDidUpdate(prevProps) {
+    const { user, isSignIn } = this.props;
+    if (user !== prevProps.user && isSignIn) {
+      const { history } = this.props;
+      history.push('/');
+    }
+  }
 
-  return (
-    <div className="signin-page">
-      <div className="signin-page-cover">
-        <div className="signin-page-main">
-          <h1>Sign in</h1>
-          <p>Already have an account? Log in</p>
+  handleChangeName = e => {
+    this.setState({
+      name: e.target.value,
+    });
+  }
 
-          <form onSubmit={handleSubmit}>
-            <input
-              className="signin-input"
-              type="email"
-              name="email"
-              placeholder="Email:"
-              value={email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              className="signin-input"
+  handleChangePassword = e => {
+    this.setState({
+      password: e.target.value,
+    });
+  }
 
-              type="password"
-              name="password"
-              placeholder="Password:"
-              value={password}
-              onChange={handleChange}
-              required
-            />
-            {
-          signInError && <div className="error">{signInError}</div>
-        }
-            <input
-              type="submit"
-              value="Sign in"
-              className="signin-btn"
-            />
-            <div className={signInCoverClass}>
-              <Loader
-                type="Oval"
-                color="rgb(255, 75, 4)"
-              />
-            </div>
-          </form>
-          <Link className="auth-redirect" to="/signup">Sign up</Link>
+  handleSubmit= async e => {
+    e.preventDefault();
+    const { name, password } = this.state;
+    const { signInUser } = this.props;
+    const response = await signInUser({ name, password });
+    const { error } = this.props;
+
+    if (response.data.status === 401) {
+      this.setState({
+        errors: error,
+      });
+    }
+  }
+
+  handleErrors = () => {
+    const { errors } = this.state;
+    setTimeout(() => this.setState(
+      { errors: '' },
+    ), 3000);
+    if (errors.length > 0) {
+      return (
+        <div>
+          <ul>
+            {errors.map(
+              error => (
+                <li
+                  key={error}
+                >
+                  {error}
+                </li>
+              ),
+            )}
+          </ul>
         </div>
-      </div>
-    </div>
-  );
+      );
+    }
+    return null;
+  }
+
+  render() {
+    const {
+      name,
+      errors,
+      password,
+    } = this.state;
+
+    return (
+      <section className="sign-in">
+        <div>
+          <ul id="errors-div" className="errors-div">
+            {errors ? this.handleErrors() : null}
+          </ul>
+        </div>
+        <h2>Log In</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            placeholder="name"
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleChangeName}
+          />
+          <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChangePassword}
+          />
+          <button
+            className="btn-sign-in"
+            placeholder="submit"
+            type="submit"
+          >
+            Sign In
+          </button>
+
+          <p>OR</p>
+
+          <button
+            type="button"
+            className="btn-signup"
+          >
+            <Link
+              to="/signup"
+            >
+              Create an account
+            </Link>
+          </button>
+
+        </form>
+
+      </section>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  user: state.user,
+  isSignIn: state.user.isSignIn,
+  error: state.user.errors,
+});
+
+const mapDispatchToProps = dispatch => ({
+  signInUser: data => dispatch(signInUser(data)),
+});
+
+SignIn.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  isSignIn: PropTypes.bool,
+  user: PropTypes.shape({}),
+  signInUser: PropTypes.func,
+  error: PropTypes.instanceOf(Array),
+
 };
 
-export default SignIn;
+SignIn.defaultProps = {
+  history: {},
+  signInUser: () => {},
+  user: {},
+  isSignIn: false,
+  error: [],
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(SignIn),
+);
