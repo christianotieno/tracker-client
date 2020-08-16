@@ -26,7 +26,7 @@ export const createTask = data => async dispatch => {
   try {
     const response = await axios({
       method: 'POST',
-      url: `http://localhost:4000/users/${data.user_id}/schedules/${data.schedule_id}/tasks `,
+      url: `https://schedule-tracker-api.herokuapp.com/users/${data.user_id}/schedules/${data.schedule_id}/tasks `,
       data,
       crossdomain: true,
       withCredentials: true,
@@ -49,7 +49,7 @@ export const deleteTask = data => async dispatch => {
     dispatch({ type: DELETE_TASK, payload: data });
     const response = await axios({
       method: 'DELETE',
-      url: `http://localhost:4000/users/${data.user_id}/schedules/${data.schedule_id}/tasks/${data.id}`,
+      url: `https://schedule-tracker-api.herokuapp.com/users/${data.user_id}/schedules/${data.schedule_id}/tasks/${data.id}`,
       data,
       crossdomain: true,
       withCredentials: true,
@@ -68,7 +68,7 @@ export const updateTask = data => async dispatch => {
     });
     const response = await axios({
       method: 'PATCH',
-      url: `http://localhost:4000/users/${data.user_id}/schedules/${data.schedule_id}/tasks/${data.id}`,
+      url: `https://schedule-tracker-api.herokuapp.com/users/${data.user_id}/schedules/${data.schedule_id}/tasks/${data.id}`,
       data,
       crossdomain: true,
       withCredentials: true,

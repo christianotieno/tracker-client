@@ -6,7 +6,7 @@ export const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
 export const CREATE_SCHEDULE_ERROR = 'CREATE_SCHEDULE_ERROR';
 export const DISPLAY_FETCHED_SCHEDULE = 'DISPLAY_FETCHED_SCHEDULE';
 
-export const fetchUserSchedule = id => dispatch => axios.get(`http://localhost:4000/users/${id}/schedules`)
+export const fetchUserSchedule = id => dispatch => axios.get(`https://schedule-tracker-api.herokuapp.com/${id}/schedules`)
   .then(response => response.data)
   .then(data => {
     dispatch({
@@ -22,7 +22,7 @@ export const createSchedule = data => async dispatch => {
   try {
     const response = await axios({
       method: 'POST',
-      url: `http://localhost:4000/users/${data.user_id}/schedules`,
+      url: `https://schedule-tracker-api.herokuapp.com/users/${data.user_id}/schedules`,
       data,
       crossdomain: true,
       withCredentials: true,
@@ -45,7 +45,7 @@ export const deleteSchedule = data => async dispatch => {
     dispatch({ type: DELETE_SCHEDULE, payload: data });
     const response = await axios({
       method: 'DELETE',
-      url: `http://localhost:4000/users/${data.user_id}/schedules/${data.id}`,
+      url: `https://schedule-tracker-api.herokuapp.com/users/${data.user_id}/schedules/${data.id}`,
       data,
       crossdomain: true,
       withCredentials: true,
@@ -61,7 +61,7 @@ export const updateSchedule = data => async dispatch => {
     dispatch({ type: UPDATE_SCHEDULE, payload: data });
     const response = await axios({
       method: 'PATCH',
-      url: `http://localhost:4000/users/${data.user_id}/schedules/${data.id}`,
+      url: `https://schedule-tracker-api.herokuapp.com/users/${data.user_id}/schedules/${data.id}`,
       data,
       crossdomain: true,
       withCredentials: true,
