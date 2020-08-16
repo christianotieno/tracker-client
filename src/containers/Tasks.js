@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { signInStatus } from '../actions/auth';
+import { signInStatus } from '../actions/user';
 import TaskForm from '../components/TaskForm';
 import {
   fetchScheduleTasks,

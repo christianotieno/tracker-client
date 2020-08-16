@@ -13,7 +13,7 @@ export const createUser = newUser => async dispatch => {
   try {
     response = await axios({
       method: 'POST',
-      url: 'https://schedule-tracker-api.herokuapp.com/users',
+      url: 'http://localhost:4000/users',
       data: { user: newUser },
       crossdomain: true,
       withCredentials: true,
@@ -35,7 +35,7 @@ export const createUser = newUser => async dispatch => {
 export const signInUser = user => async dispatch => {
   let response = {};
   try {
-    response = await axios.post('https://schedule-tracker-api.herokuapp.com/login', { user }, { withCredentials: true });
+    response = await axios.post('http://localhost:4000/login', { user }, { withCredentials: true });
     dispatch({
       type: SIGNIN_USER,
       payload: response.data,
@@ -55,7 +55,7 @@ export const signOutUser = () => async dispatch => {
     dispatch({ type: SIGNOUT_USER, payload: {} });
     const response = await axios({
       method: 'DELETE',
-      url: 'https://schedule-tracker-api.herokuapp.com/logout',
+      url: 'http://localhost:4000/logout',
       data: { user: {} },
       crossdomain: true,
       withCredentials: true,
@@ -65,7 +65,7 @@ export const signOutUser = () => async dispatch => {
 };
 
 export const signInStatus = () => dispatch => {
-  axios.get('https://schedule-tracker-api.herokuapp.com/logged_in',
+  axios.get('http://localhost:4000/logged_in',
     { withCredentials: true })
     .then(response => (
       response.data))

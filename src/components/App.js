@@ -6,13 +6,14 @@ import {
   Route,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ScheduleHeader from './ScheduleHeader';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
 import Schedule from '../containers/Schedule';
 import Tasks from '../containers/Tasks';
 import Footer from './Footer';
-import { signInStatus } from '../actions/auth';
+import { signInStatus } from '../actions/user';
+import Header from './Header';
+import '../styles/user.css';
 
 class App extends React.Component {
   constructor() {
@@ -41,7 +42,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <ScheduleHeader />
+          <Header />
           <Footer displayForm={this.displayForm} addForm={addForm} />
           <Switch>
             <Route
@@ -57,7 +58,7 @@ class App extends React.Component {
             />
             <Route
               exact
-              path="/sign-in"
+              path="/signin"
               render={() => (
                 <SignIn />
 
@@ -65,7 +66,7 @@ class App extends React.Component {
             />
             <Route
               exact
-              path="/sign-up"
+              path="/signup"
               render={() => (
                 <SignUp />
               )}

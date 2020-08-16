@@ -7,7 +7,7 @@ import {
   SIGNED_IN_ERROR,
   CREATE_USER_ERROR,
 
-} from '../actions/auth';
+} from '../actions/user';
 
 const initialState = {
   isSignIn: false,
@@ -18,7 +18,7 @@ const initialState = {
   errors: [],
 };
 
-const authReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNED_IN:
       return {
@@ -50,7 +50,7 @@ const authReducer = (state = initialState, action) => {
     case CREATE_USER_ERROR:
       return {
         isSignIn: false,
-        error: action.payload,
+        errors: action.payload,
       };
 
     case SIGNIN_USER:
@@ -79,4 +79,4 @@ const authReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default authReducer;
+export default userReducer;

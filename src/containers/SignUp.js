@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { createUser } from '../actions/auth';
+import { createUser } from '../actions/user';
 
 class SignUp extends Component {
   constructor(props) {
@@ -83,47 +83,58 @@ class SignUp extends Component {
      } = this.state;
 
      return (
-       <section className="signup">
-         <div className="errors-div">
-           {errors ? this.handleErrors() : null}
+       <section className="signin-page">
+         <div className="signin-page-cover">
+
+           <div className="errors-div">
+             {errors ? this.handleErrors() : null}
+           </div>
+           <div className="signin-page-main">
+             <h2>Sign Up</h2>
+             <form onSubmit={this.handleSubmit}>
+               <input
+                 className="signup-input"
+                 placeholder="Name"
+                 type="text"
+                 name="name"
+                 value={name}
+                 onChange={this.handleChangeName}
+                 required
+               />
+               <input
+                 className="signup-input"
+                 placeholder="Password"
+                 type="password"
+                 name="password"
+                 value={password}
+                 onChange={this.handleChangePassword}
+                 required
+               />
+               <input
+                 className="signup-input"
+                 placeholder="Confirm Password"
+                 type="password"
+                 name="passwordConfirmation"
+                 value={password_confirmation}
+                 onChange={this.handleChangePasswordConfirm}
+                 required
+               />
+               <button
+                 className="signup-btn"
+                 type="submit"
+               >
+                 Create Account
+               </button>
+             </form>
+           </div>
          </div>
-         <h2>Sign Up</h2>
-         <form onSubmit={this.handleSubmit}>
-           <input
-             placeholder="Name"
-             type="text"
-             name="name"
-             value={name}
-             onChange={this.handleChangeName}
-             required
-           />
-           <input
-             placeholder="Password"
-             type="password"
-             name="password"
-             value={password}
-             onChange={this.handleChangePassword}
-             required
-           />
-           <input
-             placeholder="Confirm Password"
-             type="password"
-             name="passwordConfirmation"
-             value={password_confirmation}
-             onChange={this.handleChangePasswordConfirm}
-             required
-           />
-           <button placeholder="submit" type="submit">
-             Sign In
-           </button>
-         </form>
        </section>
      );
    }
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user.user,
   isSignIn: state.user.isSignIn,
   error: state.user.error,
 });

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import scheduleReducer from './scheduleReducer';
 import taskReducer from './taskReducer';
-import authReducer from './authReducer';
+import userReducer from './userReducer';
 
 const rootReducer = () => combineReducers({
   schedule: scheduleReducer,
   task: taskReducer,
-  auth: authReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

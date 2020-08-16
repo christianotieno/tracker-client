@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signInUser } from '../actions/auth';
+import { signInUser } from '../actions/user';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -43,6 +43,7 @@ class SignIn extends React.Component {
     const { error } = this.props;
 
     if (response.data.status === 401) {
+      console.log(response.data);
       this.setState({
         errors: error,
       });
@@ -82,51 +83,53 @@ class SignIn extends React.Component {
     } = this.state;
 
     return (
-      <section className="sign-in">
-        <div>
+      <section className="signin-page">
+        <div className="signin-page-cover">
           <ul id="errors-div" className="errors-div">
             {errors ? this.handleErrors() : null}
           </ul>
         </div>
-        <h2>Log In</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChangeName}
-          />
-          <input
-            placeholder="Password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChangePassword}
-          />
-          <button
-            className="btn-sign-in"
-            placeholder="submit"
-            type="submit"
-          >
-            Sign In
-          </button>
-
-          <p>OR</p>
-
-          <button
-            type="button"
-            className="btn-signup"
-          >
-            <Link
-              to="/signup"
+        <div className="signin-page-main">
+          <h2>Log In</h2>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              className="signin-input"
+              placeholder="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChangeName}
+            />
+            <input
+              className="signin-input"
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChangePassword}
+            />
+            <button
+              className="signin-btn"
+              type="submit"
             >
-              Create an account
-            </Link>
-          </button>
+              Sign In
+            </button>
 
-        </form>
+            <p>Do not have an account?</p>
 
+            <button
+              type="button"
+              className="signup-btn"
+            >
+              <Link
+                to="/signup"
+              >
+                Create an account
+              </Link>
+            </button>
+
+          </form>
+        </div>
       </section>
     );
   }
@@ -154,11 +157,12 @@ SignIn.propTypes = {
 };
 
 SignIn.defaultProps = {
-  history: {},
-  signInUser: () => {},
   user: {},
-  isSignIn: false,
   error: [],
+  history: {},
+  isSignIn: false,
+  signInUser: () => {},
+
 };
 
 export default withRouter(
