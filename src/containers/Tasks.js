@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { signInStatus } from '../actions/user';
+import { loginStatus } from '../actions/user';
 import TaskForm from '../components/TaskForm';
 import {
   fetchScheduleTasks,
@@ -104,7 +104,7 @@ class Tasks extends React.Component {
       return scheduleTitle;
     }
     const { history } = this.props;
-    history.push('/');
+    history.push('/main');
     return null;
   }
 
@@ -122,7 +122,7 @@ class Tasks extends React.Component {
             className="go-back"
             onClick={this.displayInfo}
           >
-            <Link to="/">
+            <Link to="/main">
               <i
                 className="fa fa-arrow-left"
                 aria-hidden="true"
@@ -248,7 +248,7 @@ const mapDispatchToProps = dispatch => ({
   ) => dispatch(
     fetchScheduleTasks(datauser, dataschedule),
   ),
-  signInStatus: () => dispatch(signInStatus()),
+  loginStatus: () => dispatch(loginStatus()),
   createTask: data => dispatch(createTask(data)),
   deleteTask: (id, id2) => dispatch(deleteTask(id, id2)),
 });

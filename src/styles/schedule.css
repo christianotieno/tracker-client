@@ -1,0 +1,126 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap";
+
+.main {
+  padding-bottom: 10vh;
+  font-family: 'Helvetica', sans-serif;
+  overflow-y: scroll;
+}
+
+.main h3 {
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.schedule-form {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  border: 0.5px solid rgb(218, 213, 213);
+  margin: 0 15px 12px 15px;
+  border-radius: 11px;
+  flex-direction: column;
+  background-color: #8090a0;
+}
+
+.one-parameter {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 4px;
+}
+
+.one-parameter label {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.one-parameter input,
+.one-parameter textarea {
+  border: 1px solid gray;
+  width: 50vw;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-family: 'Helvetica', sans-serif;
+  padding: 4px;
+  margin-left: 3px;
+}
+
+.add-schedule {
+  height: 40px;
+}
+
+.one-parameter input {
+  height: 4.5vh;
+}
+
+.one-parameter textarea {
+  height: 10vh;
+}
+
+.one-parameter input:focus,
+.one-parameter textarea:focus {
+  background-color: aliceblue;
+}
+
+.buttons-form {
+  display: flex;
+  margin-top: 9px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.buttons-form button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+  height: 100%;
+  width: 20vw;
+  cursor: pointer;
+  padding: 10px 2px;
+}
+
+.buttons-form button:first-child {
+  background-color: #c1efbe;
+}
+
+.buttons-form button:last-child {
+  background-color: #8ed3f1;
+}
+
+.schedules {
+  margin-top: 12px;
+}
+
+.one-ill {
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid rgb(218, 213, 213);
+  background-color: white;
+  margin: 0 15px 12px 15px;
+  border-radius: 11px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule-header {
+  font-weight: bold;
+  align-items: center;
+  width: 33%;
+  justify-content: flex-start;
+}
+
+.schedule-info {
+  width:70%;
+  align-items: flex-start;
+}
+
+.task {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 150px;
+}

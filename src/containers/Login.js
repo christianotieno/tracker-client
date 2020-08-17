@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signInUser } from '../actions/user';
+import { loginUser } from '../actions/user';
 
-class SignIn extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +15,10 @@ class SignIn extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { user, isSignIn } = this.props;
-    if (user !== prevProps.user && isSignIn) {
+    const { user, isLogin } = this.props;
+    if (user !== prevProps.user && isLogin) {
       const { history } = this.props;
-      history.push('/');
+      history.push('/main');
     }
   }
 
@@ -38,12 +37,11 @@ class SignIn extends React.Component {
   handleSubmit= async e => {
     e.preventDefault();
     const { name, password } = this.state;
-    const { signInUser } = this.props;
-    const response = await signInUser({ name, password });
+    const { loginUser } = this.props;
+    const response = await loginUser({ name, password });
     const { error } = this.props;
 
     if (response.data.status === 401) {
-      console.log(response.data);
       this.setState({
         errors: error,
       });
@@ -85,7 +83,7 @@ class SignIn extends React.Component {
     return (
       <section className="signin-page">
         <div className="signin-page-cover">
-          <ul id="errors-div" className="errors-div">
+          <ul id="error" className="error">
             {errors ? this.handleErrors() : null}
           </ul>
         </div>
@@ -114,20 +112,7 @@ class SignIn extends React.Component {
             >
               Sign In
             </button>
-
-            <p>Do not have an account?</p>
-
-            <button
-              type="button"
-              className="signup-btn"
-            >
-              <Link
-                to="/signup"
-              >
-                Create an account
-              </Link>
-            </button>
-
+            <p>Do not have an account? Signup below.</p>
           </form>
         </div>
       </section>
@@ -137,31 +122,31 @@ class SignIn extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.user,
-  isSignIn: state.user.isSignIn,
+  isLogin: state.user.isLogin,
   error: state.user.errors,
 });
 
 const mapDispatchToProps = dispatch => ({
-  signInUser: data => dispatch(signInUser(data)),
+  signInUser: data => dispatch(loginUser(data)),
 });
 
-SignIn.propTypes = {
+Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
-  isSignIn: PropTypes.bool,
+  isLogin: PropTypes.bool,
   user: PropTypes.shape({}),
-  signInUser: PropTypes.func,
+  loginUser: PropTypes.func,
   error: PropTypes.instanceOf(Array),
 
 };
 
-SignIn.defaultProps = {
+Login.defaultProps = {
   user: {},
   error: [],
   history: {},
-  isSignIn: false,
-  signInUser: () => {},
+  isLogin: false,
+  loginUser: () => {},
 
 };
 
@@ -169,5 +154,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(SignIn),
+  )(Login),
 );

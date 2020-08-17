@@ -3,8 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signInStatus } from '../actions/user';
+import { loginStatus } from '../actions/user';
 import ScheduleForm from '../components/ScheduleForm';
+import '../styles/schedule.css';
 import {
   fetchUserSchedule,
   createSchedule,
@@ -98,7 +99,7 @@ class Schedule extends React.Component {
            className="add-schedule"
            onClick={this.displayForm}
          >
-           +
+           + Click here to add schedules
          </button>
 
          <div className="schedules">
@@ -108,7 +109,7 @@ class Schedule extends React.Component {
            && !addForm
            && (
            <div className="task">
-             Add your Schedules here!
+             Click the + button to add schedules!
            </div>
            )}
            {schedule.map(sched => (
@@ -120,17 +121,14 @@ class Schedule extends React.Component {
                      type="button"
                      onClick={() => this.deleteSchedule(sched.id)}
                    >
-                     <i className="fa fa-trash-o" />
+                     Delete Schedule
                    </button>
 
                    <button
                      type="button"
                      onClick={this.displayEdit}
                    >
-                     <i
-                       className="fa fa-pencil-square-o"
-                       id={sched.id}
-                     />
+                     Show
                    </button>
 
                  </div>
@@ -192,7 +190,7 @@ class Schedule extends React.Component {
 const mapStateToProps = state => (
   {
     user: state.user,
-    isSignIn: state.user.isSignIn,
+    isLogin: state.user.isLogin,
     schedule: state.schedule,
   });
 
@@ -200,7 +198,7 @@ const mapDispatchToProps = dispatch => ({
   fetchUserSchedule: data => dispatch(fetchUserSchedule(data)),
   createSchedule: data => dispatch(createSchedule(data)),
   deleteSchedule: id => dispatch(deleteSchedule(id)),
-  signInStatus: () => dispatch(signInStatus()),
+  signInStatus: () => dispatch(loginStatus()),
 });
 
 Schedule.propTypes = {

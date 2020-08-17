@@ -108,14 +108,20 @@ class ScheduleForm extends React.Component {
           <div className="buttons-form">
             {actionToPerform === 'Add'
             && (
-            <button type="submit">
+            <button
+              className="add-sched"
+              type="submit"
+            >
               {actionToPerform}
             </button>
             )}
 
             {actionToPerform === 'Save Changes'
             && (
-            <button type="submit">
+            <button
+              className="add-sched"
+              type="submit"
+            >
               Save
             </button>
             )}
@@ -123,6 +129,7 @@ class ScheduleForm extends React.Component {
             {actionToPerform === 'Add'
             && (
             <button
+              className="add-sched"
               type="button"
               onClick={changeAddForm}
             >
@@ -133,6 +140,7 @@ class ScheduleForm extends React.Component {
             {actionToPerform === 'Save Changes'
             && (
             <button
+              className="add-sched"
               type="button"
               onClick={changeEditForm}
             >

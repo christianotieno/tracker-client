@@ -6,14 +6,15 @@ import {
   Route,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import SignIn from '../containers/SignIn';
+import Login from '../containers/Login';
 import SignUp from '../containers/SignUp';
 import Schedule from '../containers/Schedule';
 import Tasks from '../containers/Tasks';
 import Footer from './Footer';
-import { signInStatus } from '../actions/user';
+import { loginStatus } from '../actions/user';
 import Header from './Header';
 import '../styles/user.css';
+// import Path from './Path';
 
 class App extends React.Component {
   constructor() {
@@ -24,8 +25,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { signInStatus } = this.props;
-    signInStatus();
+    const { loginStatus } = this.props;
+    loginStatus();
   }
 
   displayForm = () => {
@@ -36,7 +37,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { isSignIn } = this.props;
+    const { isLogin } = this.props;
     const { addForm } = this.state;
 
     return (
@@ -44,23 +45,24 @@ class App extends React.Component {
         <div className="App">
           <Header />
           <Footer displayForm={this.displayForm} addForm={addForm} />
+
           <Switch>
             <Route
               exact
               path="/"
               render={() => (
-                isSignIn ? (
+                isLogin ? (
                   <Schedule />
                 ) : (
-                  <SignIn />
+                  <Login />
                 )
               )}
             />
             <Route
               exact
-              path="/signin"
+              path="/login"
               render={() => (
-                <SignIn />
+                <Login />
 
               )}
             />
@@ -75,7 +77,7 @@ class App extends React.Component {
               exact
               path="/"
               render={() => (
-                isSignIn ? (
+                isLogin ? (
                   <Schedule />
                 )
                   : (
@@ -89,7 +91,7 @@ class App extends React.Component {
             <Route
               path="/schedule/:id"
               render={({ match }) => (
-                isSignIn ? (
+                isLogin ? (
                   <div className="route-tasks">
                     <Tasks
                       match={match}
@@ -119,29 +121,29 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  signInStatus: PropTypes.func,
-  isSignIn: PropTypes.bool,
+  loginStatus: PropTypes.func,
+  isLogin: PropTypes.bool,
   user: PropTypes.shape({
     id: PropTypes.number,
-    password: PropTypes.string,
     name: PropTypes.string,
+    password: PropTypes.string,
   }),
 };
 
 App.defaultProps = {
-  isSignIn: false,
-  signInStatus: () => {},
+  isLogin: false,
+  loginStatus: () => {},
   user: {},
 };
 
 const mapStateToProps = state => ({
-  isSignIn: state.user.isSignIn,
+  isLogin: state.user.isLogin,
   schedule: state.schedule,
   user: state.user,
 });
 
 const mapDispatchToProps = dispatch => ({
-  signInStatus: () => dispatch(signInStatus()),
+  loginStatus: () => dispatch(loginStatus()),
 });
 
 export default connect(

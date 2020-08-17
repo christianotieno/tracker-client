@@ -1,19 +1,19 @@
-.signin-page {
+/* .signin-page {
   background: rgb(66, 181, 232) url(/rocco-stoppoloni.jpg) 100% 0 no-repeat;
   background-size: cover;
   height: 100vh;
   position: relative;
   font-family: Helvetica;
-}
+} */
 
-.signin-page-cover {
+/* .signin-page-cover {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgb(66, 181, 232, 0.7);
-}
+} */
 
 .signin-page-main {
   display: flex;
@@ -84,35 +84,6 @@
 .login-btn:focus,
 .signup-btn:focus {
   outline: none;
-}
-
-.auth-redirect {
-  font-size: 18px;
-  font-weight: 600;
-  color: rgb(43, 55, 61);
-  text-decoration: none;
-  margin-top: 20px;
-}
-
-.auth-redirect:hover {
-  color: rgb(93, 93, 93);
-}
-
-.signin-loading-cover {
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border-radius: 10px;
-  z-index: 2;
-}
-
-.signin-loading-cover.open {
-  display: flex;
 }
 
 .error {

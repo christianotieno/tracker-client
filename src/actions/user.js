@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const SIGNED_IN = 'SIGNED_IN';
-export const SIGNIN_USER = 'SIGNIN_USER';
+export const LOGGED_IN = 'LOGGED_IN';
+export const LOGIN_USER = 'LOGIN_USER';
 export const CREATE_USER = 'CREATE_USER';
-export const SIGNOUT_USER = 'SIGNOUT_USER';
-export const SIGNED_IN_ERROR = 'SIGNED_IN_ERROR';
-export const SIGNIN_USER_ERROR = 'SIGNIN_USER_ERROR';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOGGED_IN_ERROR = 'LOGGED_IN_ERROR';
+export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR';
 export const CREATE_USER_ERROR = 'CREATE_USER_ERROR';
 
 export const createUser = newUser => async dispatch => {
@@ -13,7 +13,7 @@ export const createUser = newUser => async dispatch => {
   try {
     response = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/users',
+      url: 'http://127.0.0.1:4000/users',
       data: { user: newUser },
       crossdomain: true,
       withCredentials: true,
@@ -32,30 +32,30 @@ export const createUser = newUser => async dispatch => {
   }
 };
 
-export const signInUser = user => async dispatch => {
+export const loginUser = user => async dispatch => {
   let response = {};
   try {
-    response = await axios.post('http://localhost:4000/login', { user }, { withCredentials: true });
+    response = await axios.post('http://127.0.0.1:4000/login', { user }, { withCredentials: true });
     dispatch({
-      type: SIGNIN_USER,
+      type: LOGIN_USER,
       payload: response.data,
     });
     return response;
   } catch (error) {
     dispatch({
-      type: SIGNIN_USER_ERROR,
+      type: LOGIN_USER_ERROR,
       payload: error,
     });
     return error;
   }
 };
 
-export const signOutUser = () => async dispatch => {
+export const logOutUser = () => async dispatch => {
   try {
-    dispatch({ type: SIGNOUT_USER, payload: {} });
+    dispatch({ type: LOGOUT_USER, payload: {} });
     const response = await axios({
       method: 'DELETE',
-      url: 'http://localhost:4000/logout',
+      url: 'http://127.0.0.1:4000/logout',
       data: { user: {} },
       crossdomain: true,
       withCredentials: true,
@@ -64,20 +64,20 @@ export const signOutUser = () => async dispatch => {
   } catch (error) { return (error); }
 };
 
-export const signInStatus = () => dispatch => {
-  axios.get('http://localhost:4000/logged_in',
+export const loginStatus = () => dispatch => {
+  axios.get('http://127.0.0.1:4000/logged_in',
     { withCredentials: true })
     .then(response => (
       response.data))
     .then(data => {
       dispatch({
-        type: SIGNED_IN,
+        type: LOGGED_IN,
         payload: data,
       });
     })
     .catch(error => {
       dispatch({
-        type: SIGNED_IN_ERROR,
+        type: LOGGED_IN_ERROR,
         payload: error,
       });
     });

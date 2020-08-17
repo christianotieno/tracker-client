@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { createUser } from '../actions/user';
 
-class SignUp extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +51,7 @@ class SignUp extends Component {
      });
      if (response && response.status === 200) {
        const { history } = this.props;
-       history.push('/');
+       history.push('/main');
      } else {
        const { error } = this.props;
        this.setState({
@@ -68,7 +68,13 @@ class SignUp extends Component {
      return (
        <ul>
          {errors.map(
-           error => <li key={error}>{error}</li>,
+           error => (
+             <li
+               key={error}
+             >
+               {error}
+             </li>
+           ),
          )}
        </ul>
      );
@@ -86,7 +92,7 @@ class SignUp extends Component {
        <section className="signin-page">
          <div className="signin-page-cover">
 
-           <div className="errors-div">
+           <div className="error">
              {errors ? this.handleErrors() : null}
            </div>
            <div className="signin-page-main">
@@ -101,6 +107,7 @@ class SignUp extends Component {
                  onChange={this.handleChangeName}
                  required
                />
+
                <input
                  className="signup-input"
                  placeholder="Password"
@@ -110,6 +117,7 @@ class SignUp extends Component {
                  onChange={this.handleChangePassword}
                  required
                />
+
                <input
                  className="signup-input"
                  placeholder="Confirm Password"
@@ -135,7 +143,7 @@ class SignUp extends Component {
 
 const mapStateToProps = state => ({
   user: state.user.user,
-  isSignIn: state.user.isSignIn,
+  isLogin: state.user.isLogin,
   error: state.user.error,
 });
 
@@ -143,7 +151,7 @@ const mapDispatchToProps = dispatch => ({
   createUser: data => dispatch(createUser(data)),
 });
 
-SignUp.propTypes = {
+Signup.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
@@ -152,7 +160,7 @@ SignUp.propTypes = {
 
 };
 
-SignUp.defaultProps = {
+Signup.defaultProps = {
   error: [],
   history: {},
 };
@@ -161,5 +169,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(SignUp),
+  )(Signup),
 );

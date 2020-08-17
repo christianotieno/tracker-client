@@ -1,16 +1,16 @@
 import {
 
-  SIGNED_IN,
+  LOGGED_IN,
   CREATE_USER,
-  SIGNIN_USER,
-  SIGNOUT_USER,
-  SIGNED_IN_ERROR,
+  LOGIN_USER,
+  LOGOUT_USER,
+  LOGGED_IN_ERROR,
   CREATE_USER_ERROR,
 
 } from '../actions/user';
 
 const initialState = {
-  isSignIn: false,
+  isLogin: false,
   user: {
     name: '',
     id: 0,
@@ -20,9 +20,9 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SIGNED_IN:
+    case LOGGED_IN:
       return {
-        isSignIn: true,
+        isLogin: true,
         user: {
           name: action.payload.user.name,
           password: action.payload.user.password,
@@ -30,15 +30,15 @@ const userReducer = (state = initialState, action) => {
         },
       };
 
-    case SIGNED_IN_ERROR:
+    case LOGGED_IN_ERROR:
       return {
-        isSignIn: false,
+        isLogin: false,
         user: {},
       };
 
     case CREATE_USER:
       return {
-        isSignIn: true,
+        isLogin: true,
         user: {
           id: action.payload.id,
           name: action.payload.name,
@@ -49,14 +49,14 @@ const userReducer = (state = initialState, action) => {
 
     case CREATE_USER_ERROR:
       return {
-        isSignIn: false,
-        errors: action.payload,
+        isLogin: false,
+        error: action.payload,
       };
 
-    case SIGNIN_USER:
+    case LOGIN_USER:
       if (action.payload.user) {
         return {
-          isSignIn: true,
+          isLogin: true,
           user: {
             name: action.payload.user.name,
             id: action.payload.user.id,
@@ -64,13 +64,13 @@ const userReducer = (state = initialState, action) => {
         };
       }
       return {
-        isSignIn: false,
+        isLogin: false,
         errors: action.payload.errors,
       };
 
-    case SIGNOUT_USER:
+    case LOGOUT_USER:
       return {
-        isSignIn: false,
+        isLogin: false,
         user: {},
         schedule: {},
       };
