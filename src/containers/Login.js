@@ -34,7 +34,7 @@ class Login extends React.Component {
     });
   }
 
-  handleSubmit= async e => {
+  handleSubmit = async e => {
     e.preventDefault();
     const { name, password } = this.state;
     const { loginUser } = this.props;
@@ -127,7 +127,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signInUser: data => dispatch(loginUser(data)),
+  loginUser: data => dispatch(loginUser(data)),
 });
 
 Login.propTypes = {

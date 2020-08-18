@@ -44,9 +44,9 @@ class TaskForm extends React.Component {
     });
   }
 
-  handleChangeDone = () => {
+  handleChangeDone = e => {
     this.setState({
-      done: !this.state.done,
+      done: e.state.done,
     });
   }
 
@@ -173,17 +173,17 @@ class TaskForm extends React.Component {
                 </label>
               </div>
 
-              <div className="done-div">
+              {/* <div className="done-div">
                 <label htmlFor="done">
                   <input
                     id="done"
                     type="checkbox"
                     name="done"
-                    chacked={this.state.done}
+                    chacked={state.done}
                     onChange={this.handleChangeDone}
                   />
                 </label>
-              </div>
+              </div> */}
 
               <div className="notes-div">
                 <label htmlFor="notes">

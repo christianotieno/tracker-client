@@ -13,10 +13,11 @@ export const createUser = newUser => async dispatch => {
   try {
     response = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:4000/users',
+      url: 'http://127.0.0.1:3001/users',
       data: { user: newUser },
       crossdomain: true,
       withCredentials: true,
+      headers: { 'Content-Type': 'application/json' },
     });
     dispatch({
       type: CREATE_USER,
@@ -35,7 +36,7 @@ export const createUser = newUser => async dispatch => {
 export const loginUser = user => async dispatch => {
   let response = {};
   try {
-    response = await axios.post('http://127.0.0.1:4000/login', { user }, { withCredentials: true });
+    response = await axios.post('http://127.0.0.1:3001/login', { user }, { withCredentials: true });
     dispatch({
       type: LOGIN_USER,
       payload: response.data,
@@ -55,7 +56,7 @@ export const logOutUser = () => async dispatch => {
     dispatch({ type: LOGOUT_USER, payload: {} });
     const response = await axios({
       method: 'DELETE',
-      url: 'http://127.0.0.1:4000/logout',
+      url: 'http://127.0.0.1:3001/logout',
       data: { user: {} },
       crossdomain: true,
       withCredentials: true,
@@ -65,7 +66,7 @@ export const logOutUser = () => async dispatch => {
 };
 
 export const loginStatus = () => dispatch => {
-  axios.get('http://127.0.0.1:4000/logged_in',
+  axios.get('http://127.0.0.1:3001/logged_in',
     { withCredentials: true })
     .then(response => (
       response.data))

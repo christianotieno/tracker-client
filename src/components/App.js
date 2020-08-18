@@ -14,7 +14,6 @@ import Footer from './Footer';
 import { loginStatus } from '../actions/user';
 import Header from './Header';
 import '../styles/user.css';
-// import Path from './Path';
 
 class App extends React.Component {
   constructor() {

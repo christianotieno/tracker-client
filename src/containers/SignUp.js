@@ -34,7 +34,7 @@ class Signup extends Component {
     });
   }
 
-   handleSubmit= async e => {
+   handleSubmit = async e => {
      e.preventDefault();
      const {
        name,
@@ -142,7 +142,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user.user,
+  user: state.user,
   isLogin: state.user.isLogin,
   error: state.user.error,
 });
