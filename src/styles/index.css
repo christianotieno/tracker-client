@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f3f4f6;
-  font-family: Helvetica;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .main-content {
@@ -13,6 +13,7 @@
   width: 100%;
   list-style: none;
 }
+
 .content {
   background-color: #fff;
   padding: 1%;
@@ -33,7 +34,7 @@
 }
 
 .header-text {
-  font-family: Helvetica;
+  font-family: 'Helvetica', sans-serif;
   font-weight: bold;
 }
 
@@ -47,11 +48,6 @@
   width: 100%;
 }
 
-.header-text {
-  font-family: Helvetica;
-  font-weight: bold;
-}
-
 .sign-in-access {
   display: flex;
   flex-direction: column;
@@ -59,7 +55,7 @@
 }
 
 .sign-in-access p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   text-align: center;
   position: relative;
   top: 15vh;
@@ -67,5 +63,5 @@
 
 .route-tasks {
   overflow-y: scroll;
-  padding-bottom: 10vh; 
+  padding-bottom: 10vh;
 }

@@ -6,14 +6,16 @@
   margin: 0 auto;
   border-radius: 11px;
   flex-direction: column;
-  width: 80vw
+  width: 80vw;
 }
+
 .task-div {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -47,6 +49,7 @@ input::-webkit-inner-spin-button {
   border-radius: 8px;
   font-weight: bolder;
 }
+
 .task input {
   border-radius: 5px;
   border: 1px solid #808080;
@@ -90,6 +93,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: block;
   cursor: pointer;
 }
+
 .form-div {
   display: flex;
   padding: 20px;
@@ -99,6 +103,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
   align-items: center;
 }
+
 .date {
   border: 1px solid #808080;
   border-radius: 10px;
@@ -107,6 +112,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: bolder;
   background-color: #678999;
 }
+
 .delete-task-btn,
 .update-task-btn {
   border: none;
@@ -117,8 +123,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .update-task-btn {
   background-color: #97e493;
-
 }
+
 .delete-task-btn {
   color: #eee;
   background-color: #f00;

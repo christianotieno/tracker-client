@@ -49,9 +49,9 @@
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #5B8092;
+  background-color: #5b8092;
   color: #eee;
-  font-family: 'Helvetica';
+  font-family: 'Helvetica', sans-serif;
   font-weight: bolder;
 }
 
@@ -136,11 +136,11 @@
   width: 70vw;
   margin: 2% auto;
   border-radius: 5px;
-  box-shadow: 5px 10px 5px#888;
+  box-shadow: 5px 10px 5px #888;
 }
 
 .one-schedule .buttons {
-  background-color: #5B8092;
+  background-color: #5b8092;
 }
 
 .one-schedule .buttons button {
@@ -157,7 +157,7 @@
 }
 
 .update-sched {
-  background-color: #42B5E8;
+  background-color: #42b5e8;
   border: none;
   color: #eee;
 }
@@ -165,5 +165,5 @@
 .delete-sched {
   border: none;
   color: #000;
-  background-color: #C1EFBE;
+  background-color: #c1efbe;
 }
