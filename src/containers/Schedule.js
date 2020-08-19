@@ -31,7 +31,8 @@ class Schedule extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     const { schedule } = this.props;
     const {
-      addForm, editForm,
+      addForm,
+      editForm,
     } = this.state;
 
     return schedule !== nextProps.schedule
@@ -40,11 +41,18 @@ class Schedule extends React.Component {
   }
 
   addSchedule = title => {
-    const { createSchedule, user } = this.props;
+    const {
+      user,
+      createSchedule,
+    } = this.props;
+
     const { addForm } = this.state;
     const user_id = user.user.id;
 
-    createSchedule({ title, user_id });
+    createSchedule({
+      title,
+      user_id,
+    });
     this.setState({
       addForm: !addForm,
     });
@@ -89,49 +97,41 @@ class Schedule extends React.Component {
    render() {
      const { schedule } = this.props;
      const {
-       addForm, editForm, scheduleId,
+       addForm,
+       editForm,
+       scheduleId,
      } = this.state;
 
      return (
        <main className="main">
-         <button
-           type="button"
-           className="add-schedule"
-           onClick={this.displayForm}
-         >
-           + Click here to add schedules
-         </button>
-
+         <div className="sched-button">
+           <button
+             type="button"
+             className="add-schedule"
+             onClick={this.displayForm}
+           >
+             Click here to add schedules
+           </button>
+         </div>
          <div className="schedules">
-           { !editForm && !addForm && <h3>Your schedules</h3>}
-
+           {
+             !editForm
+             && !addForm
+             && <h3>Your schedules</h3>
+}
            {schedule.length === 0
            && !addForm
            && (
-           <div className="task">
-             Click the + button to add schedules!
+           <div
+             className="task"
+           >
+             Click the above button to add schedules!
            </div>
            )}
            {schedule.map(sched => (
              <div key={sched.id}>
                { !editForm && !addForm && (
                <div className="one-schedule">
-                 <div className="buttons">
-                   <button
-                     type="button"
-                     onClick={() => this.deleteSchedule(sched.id)}
-                   >
-                     Delete Schedule
-                   </button>
-
-                   <button
-                     type="button"
-                     onClick={this.displayEdit}
-                   >
-                     Show
-                   </button>
-
-                 </div>
                  <div
                    className="schedule-info"
                  >
@@ -143,18 +143,33 @@ class Schedule extends React.Component {
                    }}
                    >
                      {!editForm && (
-                     <div>
-                       <div className="schedule-header">
-                         <p>Title:</p>
-                       </div>
-                       <div
-                         className="schedule-title"
-                       >
-                         <p>{sched.title}</p>
-                       </div>
+                     <div
+                       className="schedule-title"
+                     >
+                       <p>{sched.title}</p>
+
                      </div>
                      )}
                    </Link>
+                 </div>
+                 <div className="buttons">
+                   <button
+                     type="button"
+                     className="button delete-sched"
+                     onClick={() => this.deleteSchedule(sched.id)}
+                   >
+                     Delete Schedule
+                   </button>
+
+                   <button
+                     type="button"
+                     className="button update-sched"
+                     onClick={this.displayEdit}
+                   >
+                     <span id={sched.id}>
+                       Update Schedule
+                     </span>
+                   </button>
                  </div>
                </div>
                )}

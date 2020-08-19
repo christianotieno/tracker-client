@@ -15,7 +15,7 @@
 .schedule-form {
   font-family: 'Helvetica', sans-serif;
   font-weight: bold;
-  border: 0.5px solid rgb(218, 213, 213);
+  border: 0.5px solid #dad5d5;
   margin: 0 15px 12px 15px;
   border-radius: 11px;
   flex-direction: column;
@@ -38,7 +38,7 @@
 
 .one-parameter input,
 .one-parameter textarea {
-  border: 1px solid gray;
+  border: 1px solid #808080;
   width: 50vw;
   border-radius: 5px;
   margin-right: 10px;
@@ -48,7 +48,20 @@
 }
 
 .add-schedule {
-  height: 40px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #5B8092;
+  color: #eee;
+  font-family: 'Helvetica';
+  font-weight: bolder;
+}
+
+.sched-button {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
 }
 
 .one-parameter input {
@@ -61,7 +74,7 @@
 
 .one-parameter input:focus,
 .one-parameter textarea:focus {
-  background-color: aliceblue;
+  background-color: #f0f8ff;
 }
 
 .buttons-form {
@@ -92,18 +105,10 @@
 }
 
 .schedules {
-  margin-top: 12px;
-}
-
-.one-ill {
   display: flex;
-  justify-content: flex-end;
-  border: 1px solid rgb(218, 213, 213);
-  background-color: white;
-  margin: 0 15px 12px 15px;
-  border-radius: 11px;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  padding: 2px 0;
 }
 
 .schedule-header {
@@ -114,8 +119,7 @@
 }
 
 .schedule-info {
-  width:70%;
-  align-items: flex-start;
+  padding: 10px;
 }
 
 .task {
@@ -123,4 +127,41 @@
   justify-content: center;
   text-align: center;
   margin-top: 150px;
+}
+
+.one-schedule {
+  border: 1px solid #dad5d5;
+  width: 70vw;
+  margin: 2% auto;
+  border-radius: 5px;
+  box-shadow: 5px 10px 5px#888;
+}
+
+.one-schedule .buttons {
+  background-color: #5B8092;
+}
+
+.one-schedule .buttons button {
+  width: 50%;
+  cursor: pointer;
+  height: 50px;
+  font-weight: bolder;
+}
+
+.schedule-title {
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
+
+.update-sched {
+  background-color: #42B5E8;
+  border: none;
+  color: #eee;
+}
+
+.delete-sched {
+  border: none;
+  color: #000;
+  background-color: #C1EFBE;
 }

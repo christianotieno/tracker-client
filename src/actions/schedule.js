@@ -6,7 +6,9 @@ export const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
 export const CREATE_SCHEDULE_ERROR = 'CREATE_SCHEDULE_ERROR';
 export const DISPLAY_FETCHED_SCHEDULE = 'DISPLAY_FETCHED_SCHEDULE';
 
-export const fetchUserSchedule = id => dispatch => axios.get(`http://127.0.0.1:4000/${id}/schedules`)
+export const fetchUserSchedule = id => dispatch => axios.get(
+  `http://127.0.0.1:3001/users/${id}/schedules`,
+)
   .then(response => response.data)
   .then(data => {
     dispatch({

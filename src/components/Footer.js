@@ -7,7 +7,11 @@ import { logOutUser } from '../actions/user';
 import '../styles/footer.css';
 
 const Footer = ({
-  isLogin, logOut, history, displayForm, match,
+  isLogin,
+  logOut,
+  history,
+  displayForm,
+  match,
 }) => {
   const handleClick = async e => {
     e.preventDefault();
@@ -106,7 +110,7 @@ const mapStateToProps = state => ({
 
 });
 const mapDispatchToProps = dispatch => ({
-  signOut: () => dispatch(logOutUser()),
+  logOut: () => dispatch(logOutUser()),
 });
 
 export default withRouter(

@@ -43,7 +43,10 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Header />
-          <Footer displayForm={this.displayForm} addForm={addForm} />
+          <Footer
+            displayForm={this.displayForm}
+            addForm={addForm}
+          />
 
           <Switch>
             <Route
@@ -74,7 +77,7 @@ class App extends React.Component {
             />
             <Route
               exact
-              path="/"
+              path="/main"
               render={() => (
                 isLogin ? (
                   <Schedule />
@@ -91,7 +94,9 @@ class App extends React.Component {
               path="/schedule/:id"
               render={({ match }) => (
                 isLogin ? (
-                  <div className="route-tasks">
+                  <div
+                    className="route-tasks"
+                  >
                     <Tasks
                       match={match}
                       displayForm={this.displayForm}
