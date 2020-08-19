@@ -11,6 +11,7 @@ import {
   createTask,
   deleteTask,
 } from '../actions/task';
+import '../styles/task.css';
 
 class Tasks extends React.Component {
   constructor(props) {
@@ -19,7 +20,6 @@ class Tasks extends React.Component {
       ID: props.match.params.id,
       addEdit: false,
       buttonId: '0',
-      addMore: false,
     };
   }
 
@@ -88,14 +88,6 @@ class Tasks extends React.Component {
     });
   }
 
-  displayMore = e => {
-    const { addMore } = this.state;
-    this.setState({
-      addMore: !addMore,
-      buttonId: e.target.id,
-    });
-  }
-
   displayTask = () => {
     const { location } = this.props;
     const { state } = location;
@@ -109,7 +101,7 @@ class Tasks extends React.Component {
   }
 
   render() {
-    const { addEdit, buttonId, addMore } = this.state;
+    const { addEdit, buttonId } = this.state;
     const { tasks, addForm } = this.props;
 
     const name = this.displayTask();
@@ -137,7 +129,7 @@ class Tasks extends React.Component {
         </div>
 
         {!addEdit && !addForm && (
-        <h3>
+        <h3 className="title">
           Scheduled Tasks:
           {' '}
           {name && <span>{name}</span>}
@@ -150,64 +142,31 @@ class Tasks extends React.Component {
                 <div className="task">
                   <div className="date">
                     <p>
-                      <i
-                        className="fa fa-calendar"
-                        aria-hidden="true"
-                      />
+                      Date created:
+                      {' '}
                       {this.createDate(task.date).slice(0, 16)}
+                      {' '}
                     </p>
-                    <div>
-                      <button
-                        type="button"
-                        onClick={() => this.deleteTask(task.id)}
-                      >
-                        <i className="fa fa-trash-o" />
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={this.displayEdit}
-                      >
-                        <i
-                          className="fa fa-pencil-square-o"
-                          aria-label="pencil"
-                          id={task.id}
-                        />
-
-                      </button>
-                    </div>
                   </div>
-
-                  <div className="done">
-                    <p>
-                      Done:
-                    </p>
-                    <p>{task.done}</p>
+                  <div className="name">
+                    <p>{task.name}</p>
                   </div>
-
-                  <button
-                    type="button"
-                    onClick={this.displayMore}
-                    id={task.id}
-                    className="more"
-                  >
-                    ▼
-
-                  </button>
-                  {addMore && buttonId === task.id.toString() && (
-                  <div className="meds-info">
-                    <ul className="notes">
-                      {task.notes && <p>Notes:</p>}
-                      <div className="notes">
-                        {task.notes && task.notes.map(x => (
-                          x !== '' ? (
-                            <li key={x}>{x}</li>
-                          ) : null
-                        ))}
-                      </div>
-                    </ul>
+                  <div>
+                    <button
+                      className="delete-task-btn"
+                      type="button"
+                      onClick={() => this.deleteTask(task.id)}
+                    >
+                      <p>Delete task</p>
+                    </button>
+                    <button
+                      type="button"
+                      className="update-task-btn"
+                      onClick={this.displayEdit}
+                    >
+                      <p id={task.id}>Update task</p>
+                    </button>
                   </div>
-                  )}
                 </div>
               </div>
             )}

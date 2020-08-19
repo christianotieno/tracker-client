@@ -213,7 +213,7 @@ const mapDispatchToProps = dispatch => ({
   fetchUserSchedule: data => dispatch(fetchUserSchedule(data)),
   createSchedule: data => dispatch(createSchedule(data)),
   deleteSchedule: id => dispatch(deleteSchedule(id)),
-  signInStatus: () => dispatch(loginStatus()),
+  loginStatus: () => dispatch(loginStatus()),
 });
 
 Schedule.propTypes = {

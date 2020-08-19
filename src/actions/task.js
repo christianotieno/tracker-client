@@ -9,7 +9,7 @@ export const DISPLAY_FETCHED_TASKS = 'DISPLAY_FETCHED_TASKS';
 export const fetchScheduleTasks = (
   userid, scheduleid,
 ) => dispatch => axios.get(
-  `http://127.0.0.1:4000/users/${userid}/schedules/${scheduleid}/tasks`,
+  `http://127.0.0.1:3001/users/${userid}/schedules/${scheduleid}/tasks`,
 )
   .then(response => response.data)
   .then(data => {

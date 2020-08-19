@@ -45,11 +45,6 @@ class TaskForm extends React.Component {
     });
   }
 
-  // handleChangeDone = e => {
-  //   this.setState({
-  //     done: e.target.done,
-  //   });
-  // }
   handleChangeDone = () => {
     const { done } = this.state;
     this.setState({
@@ -64,7 +59,7 @@ class TaskForm extends React.Component {
   }
 
   handleChangeNotes = e => {
-    this.state({
+    this.setState({
       notes: e.target.value,
     });
   }
@@ -135,7 +130,6 @@ class TaskForm extends React.Component {
     );
 
     return (
-      // const {done} = this.props;
       <div className="task-div">
         <h3>
           {actionToPerform}
@@ -154,11 +148,6 @@ class TaskForm extends React.Component {
                     id="task-name"
                     type="text"
                     name="name"
-                    defaultValue={
-                    buttonId === '0'
-                      ? ''
-                      : task[0].name[0]
-}
                     placeholder="Task Name:"
                     onChange={e => this.handleChangeName(e)}
                   />
@@ -172,11 +161,6 @@ class TaskForm extends React.Component {
                     id="date"
                     type="date"
                     name="date"
-                    defaultValue={
-                      buttonId === '0'
-                        ? date
-                        : task[0].date.slice(0, 10)
-}
                     onChange={this.handleChangeDate}
                   />
                 </label>
@@ -189,17 +173,11 @@ class TaskForm extends React.Component {
                     id="done"
                     type="checkbox"
                     name="done"
-                    defaultValue={
-                    buttonId === '0'
-                      ? ''
-                      : task[0].done[0]
-}
                     checked={done}
                     onChange={this.handleChangeDone}
                   />
                 </label>
               </div>
-
               <div className="notes-div">
                 <label htmlFor="notes">
                   Notes:
@@ -207,11 +185,6 @@ class TaskForm extends React.Component {
                     id="notes"
                     type="text"
                     name="notes"
-                    defaultValue={
-                    buttonId === '0'
-                      ? ''
-                      : task[0].notes[0]
-}
                     placeholder="Add notes here"
                     onChange={e => this.handleChangeNotes(e)}
                   />
@@ -239,7 +212,7 @@ class TaskForm extends React.Component {
                   task[0].id, task[0].schedule_id,
                 )}
               >
-                Save
+                Save Changes
               </button>
               )}
 

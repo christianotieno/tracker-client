@@ -3,8 +3,10 @@
   display: flex;
   justify-content: center;
   border: 1px solid #808080;
-  margin: 0 15px 12px 15px;
+  margin: 0 auto;
   border-radius: 11px;
+  flex-direction: column;
+  width: 80vw
 }
 .task-div {
   display: flex;
@@ -22,7 +24,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: space-around;
   height: 50px;
-  padding: 4px
+  padding: 4px;
 }
 
 .go-back {
@@ -96,4 +98,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 40vh;
   width: 100%;
   align-items: center;
+}
+.date {
+  border: 1px solid #808080;
+  border-radius: 10px;
+  width: 50%;
+  margin: 10px auto;
+  font-weight: bolder;
+  background-color: #678999;
+}
+.delete-task-btn,
+.update-task-btn {
+  border: none;
+  border-radius: 10px;
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.update-task-btn {
+  background-color: #97e493;
+
+}
+.delete-task-btn {
+  color: #eee;
+  background-color: #f00;
+}
+
+.title {
+  text-align: center;
+}
+
+.name {
+  border: 1px solid #a3a2a2;
+  height: auto;
+  width: 90%;
+  margin: 8px auto;
+  border-radius: 10px;
 }

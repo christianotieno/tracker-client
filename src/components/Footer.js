@@ -27,12 +27,6 @@ const Footer = ({
 
   return (
     <nav className="menu">
-      {/* <PathComponent
-        path="main"
-        icon="fa-bar-chart"
-        linkText="Schedules"
-      /> */}
-
       {isLogin && match.path === '/schedule/:id' ? (
         <div
           className="icons icon-btn"

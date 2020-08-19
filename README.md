@@ -1,63 +1,125 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Schedule Tracker
 
-## Available Scripts
+## About the project
 
-In the project directory, you can run:
+This project involved creating a tracking App in which a user is presented with a list of things to be measured.
+For the Front End, I used React and Ruby on Rails for the Back-End API.
 
-### `yarn start`
+1. ## Screenshots
 
-Runs the app in the development mode.<br />
+|Name|Screenshot|
+|:---|:---:|
+|Sign up|![signup](./readme-screenshots/sign-up.png)|
+|Sign in|![signin](./readme-screenshots/sign-in.png)|
+|Add Schedules|![add schedules](./readme-screenshots/add-schedules.png)|
+|Schedules|![schedules](./readme-screenshots/schedules.png)|
+|tasks|![schedules](./readme-screenshots/tasks.png)|
+
+## 2. Built With
+
+- [React JS](https://reactjs.org/)
+- [Chrome web Browser.](https://www.google.com/chrome/?brand=CHBD&gclid=CjwKCAjwqJ_1BRBZEiwAv73uwMy_V_6pha6yTVEa8JtU5T51QdyxZOVnsXlRndK05hSO4bSM6muP5RoC2E4QAvD_BwE&gclsrc=aw.ds)
+- [Netlify](https://www.netlify.com/) for deployment.
+- [HTML/DOM](https://www.w3schools.com/js/js_htmldom.asp) - Manipulation for UI.
+- [Eslint](https://eslint.org/) for linter checks and style guides.
+
+## 3. Pre-requisites
+
+- A code editor.
+- Chrome Web Browser.
+- Have NodeJS installed locally.
+- Basic to intermediate JavaScript skills.
+
+## 4. Future feature updates/improvements
+
+- The upcoming updates will consist of:
+
+1. Ability to measure indepth a task by adding timers like pomodoro.
+2. Functionality to allow user to interact with graphs based on the input tasks.
+3. A more revamped user interface to filter out results based on the user's search and preferences of tasks.
+
+**Below are the instructions on how to play the game and also setting it up locally.**
+
+### Build Dependencies 🚧
+
+***The only dependencies are NodeJS & yarn. Any NodeJS LTS version will work. Clone this repo and run npm install.***
+
+- To get a local copy up and running, follow these simple example steps.
+
+### Setup and installation
+
+```
+git@github.com:christianotieno/tracker-client.git
+```
+
+### Install dependencies
+
+```
+yarn add
+```
+
+### Run the app in the development mode
+
+```
+yarn start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Run linter checks
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+npx eslint .
+```
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+yarn build
+```
 
-### `yarn build` fails to minify
+The command builds the app for production to the `build` folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The build's minified and the filenames include the hashes.
+Your app is ready to be deployed!
+
+|  APP NAME | BUILD STATUS: |
+|   :---:   |    :---:     |
+|**tracker-client** |  |
+
+---
+
+## 7. Live link
+
+[Link to Live Page]()
+
+---
+
+## 8. Author Section
+
+👤 **Christian Otieno**
+
+- Github: [christianotieno](https://github.com/christianotieno)
+- Twitter: [@iamchrisotieno](https://twitter.com/iamchrisotieno)
+- LinkedIn: [Christian Otieno](https://www.linkedin.com/in/christianotieno/)
+
+---
+
+## 9. 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/christianotieno/tracker-client/issues).
+
+---
+
+## 10. Show your support
+
+Give a ⭐️ if you like this project!
+
+---
+
+### Credits
+
+- Microverse
