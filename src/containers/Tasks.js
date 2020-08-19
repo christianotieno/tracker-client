@@ -123,10 +123,7 @@ class Tasks extends React.Component {
             onClick={this.displayInfo}
           >
             <Link to="/main">
-              <i
-                className="fa fa-arrow-left"
-                aria-hidden="true"
-              />
+              <span>Go back to schedules</span>
             </Link>
           </button>
 
@@ -135,14 +132,14 @@ class Tasks extends React.Component {
             className="add-task"
             onClick={this.displayInfo}
           >
-            +
-
+            Click here to add Tasks
           </button>
         </div>
 
         {!addEdit && !addForm && (
         <h3>
           Scheduled Tasks:
+          {' '}
           {name && <span>{name}</span>}
         </h3>
         )}

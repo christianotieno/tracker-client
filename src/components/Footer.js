@@ -27,11 +27,11 @@ const Footer = ({
 
   return (
     <nav className="menu">
-      <PathComponent
+      {/* <PathComponent
         path="main"
         icon="fa-bar-chart"
         linkText="Schedules"
-      />
+      /> */}
 
       {isLogin && match.path === '/schedule/:id' ? (
         <div
@@ -59,12 +59,10 @@ const Footer = ({
         <>
           <PathComponent
             path="login"
-            icon="fa-sign-in"
             linkText="Log In"
           />
           <PathComponent
             path="signup"
-            icon="fa-user-circle"
             linkText="Sign Up"
           />
         </>
@@ -72,7 +70,6 @@ const Footer = ({
       { isLogin && (
       <PathComponent
         path="logout"
-        icon="fa-sign-in"
         linkText="Log Out"
         handleClick={e => handleClick(e)}
       />

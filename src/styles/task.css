@@ -1,5 +1,3 @@
-@import "https://fonts.googleapis.com/css2?family=Roboto&display=swap";
-
 .task {
   font-family: 'Helvetica', sans-serif;
   display: flex;
@@ -20,6 +18,33 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.tasks-buttons {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  padding: 4px
+}
+
+.go-back {
+  background-color: #678999;
+  border-radius: 8px;
+  border: none;
+  color: #eee;
+  font-weight: bolder;
+}
+
+.go-back a {
+  color: #eee;
+  text-decoration: none;
+}
+
+.add-task {
+  background-color: #97e493;
+  border: none;
+  color: #eee;
+  border-radius: 8px;
+  font-weight: bolder;
+}
 .task input {
   border-radius: 5px;
   border: 1px solid #808080;

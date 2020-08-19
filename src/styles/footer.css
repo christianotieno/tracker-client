@@ -1,22 +1,20 @@
-@import "https://fonts.googleapis.com/css2?family=Roboto&display=swap";
-
-/* body {
-  margin: 0;
+body {
   background-color: #f7f8f9;
-} */
+}
 
 .menu {
   flex-shrink: 0;
   font-family: 'Roboto', sans-serif;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 98%;
   height: 10vh;
   display: flex;
   justify-content: space-around;
   background-color: #35434c;
   color: #f7f8f9;
   align-items: center;
+  border: 1px solid red;
 }
 
 .menu a {
@@ -38,10 +36,6 @@
   cursor: pointer;
 }
 
-.icon-btn {
-  width: 25%;
-}
-
 .menu a:hover,
 .icon-btn:hover {
   background-color: #62b5e5;
@@ -60,7 +54,6 @@
 .icons i,
 .icons button i {
   color: #f7f8f9;
-  font-size: 4.5vh;
 }
 
 .icons p,

@@ -1,20 +1,3 @@
-/* .signin-page {
-  background: rgb(66, 181, 232) url(/rocco-stoppoloni.jpg) 100% 0 no-repeat;
-  background-size: cover;
-  height: 100vh;
-  position: relative;
-  font-family: Helvetica;
-} */
-
-/* .signin-page-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(66, 181, 232, 0.7);
-} */
-
 .signin-page-main {
   display: flex;
   flex-direction: column;
