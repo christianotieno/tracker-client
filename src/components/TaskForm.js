@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateTask } from '../actions/task';
+import '../styles/task.css';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -44,9 +45,15 @@ class TaskForm extends React.Component {
     });
   }
 
-  handleChangeDone = e => {
+  // handleChangeDone = e => {
+  //   this.setState({
+  //     done: e.target.done,
+  //   });
+  // }
+  handleChangeDone = () => {
+    const { done } = this.state;
     this.setState({
-      done: e.state.done,
+      done: !done,
     });
   }
 
@@ -128,15 +135,35 @@ class TaskForm extends React.Component {
     );
 
     return (
-      <div>
+      // const {done} = this.props;
+      <div className="task-div">
         <h3>
           {actionToPerform}
+          {' '}
           Scheduled Tasks
         </h3>
         <form className="task">
 
           <div className="form-div">
             <div className="date-temp">
+
+              <div className="name-div">
+                <label htmlFor="name">
+                  Name:
+                  <input
+                    id="task-name"
+                    type="text"
+                    name="name"
+                    defaultValue={
+                    buttonId === '0'
+                      ? ''
+                      : task[0].name[0]
+}
+                    placeholder="Task Name:"
+                    onChange={e => this.handleChangeName(e)}
+                  />
+                </label>
+              </div>
 
               <div className="date-div">
                 <label htmlFor="date">
@@ -155,35 +182,23 @@ class TaskForm extends React.Component {
                 </label>
               </div>
 
-              <div className="name-div">
-                <label htmlFor="name">
-                  Task Name:
-                  <input
-                    id="task-name"
-                    type="text"
-                    name="name"
-                    defaultValue={
-                    buttonId === '0'
-                      ? ''
-                      : task[0].name[0]
-}
-                    placeholder="Done"
-                    onChange={e => this.handleChangeName(e)}
-                  />
-                </label>
-              </div>
-
-              {/* <div className="done-div">
+              <div className="done-div">
                 <label htmlFor="done">
+                  Done?:
                   <input
                     id="done"
                     type="checkbox"
                     name="done"
-                    chacked={state.done}
+                    defaultValue={
+                    buttonId === '0'
+                      ? ''
+                      : task[0].done[0]
+}
+                    checked={done}
                     onChange={this.handleChangeDone}
                   />
                 </label>
-              </div> */}
+              </div>
 
               <div className="notes-div">
                 <label htmlFor="notes">
