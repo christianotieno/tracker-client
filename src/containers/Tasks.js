@@ -50,13 +50,14 @@ class Tasks extends React.Component {
   }
 
   addTask = (
-    name, notes, date, done, user_id,
+    date, notes, done, name, user_id,
   ) => {
     const { ID } = this.state;
     const { createTask } = this.props;
     const schedule_id = ID;
     createTask({
-      schedule_id, name, notes, date, done, user_id,
+      schedule_id, date, notes, done, name, user_id,
+
     });
   }
 

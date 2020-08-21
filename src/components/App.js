@@ -51,17 +51,6 @@ class App extends React.Component {
           <Switch>
             <Route
               exact
-              path="/"
-              render={() => (
-                isLogin ? (
-                  <Schedule />
-                ) : (
-                  <Login />
-                )
-              )}
-            />
-            <Route
-              exact
               path="/login"
               render={() => (
                 <Login />

@@ -8,17 +8,14 @@ export const DISPLAY_FETCHED_SCHEDULE = 'DISPLAY_FETCHED_SCHEDULE';
 
 export const fetchUserSchedule = id => dispatch => axios.get(
   `http://127.0.0.1:3001/users/${id}/schedules`,
-)
-  .then(response => response.data)
-  .then(data => {
-    dispatch({
-      type: DISPLAY_FETCHED_SCHEDULE,
-      payload: data,
-    });
-  })
-  .catch(error => {
-    throw (error);
+).then(response => response.data).then(data => {
+  dispatch({
+    type: DISPLAY_FETCHED_SCHEDULE,
+    payload: data,
   });
+}).catch(error => {
+  throw (error);
+});
 
 export const createSchedule = data => async dispatch => {
   try {

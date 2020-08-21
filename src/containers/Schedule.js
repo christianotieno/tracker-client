@@ -48,10 +48,11 @@ class Schedule extends React.Component {
 
     const { addForm } = this.state;
     const user_id = user.user.id;
+    // console.log(user_id);
 
     createSchedule({
-      title,
       user_id,
+      title,
     });
     this.setState({
       addForm: !addForm,
@@ -191,7 +192,7 @@ class Schedule extends React.Component {
            {addForm
            && (
            <ScheduleForm
-             addSchedules={this.addSchedules}
+             addSchedule={this.addSchedule}
              actionToPerform="Add"
              changeAddForm={this.changeAddForm}
            />
