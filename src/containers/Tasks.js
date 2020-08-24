@@ -133,27 +133,40 @@ class Tasks extends React.Component {
         <h3 className="title">
           Scheduled Tasks:
           {' '}
+          <br />
+          {' '}
           {name && <span>{name}</span>}
         </h3>
         )}
         {tasks.map(task => (
           <div key={task.id}>
             {!addEdit && !addForm && (
-              <div>
-                <div className="task">
-                  <div className="date">
-                    <p>
-                      Date created:
-                      {' '}
-                      {this.createDate(task.date).slice(0, 16)}
-                      {' '}
-                    </p>
-                  </div>
+              <div className="task">
+                <div className="task-div">
                   <div className="name">
                     <p>{task.name}</p>
                   </div>
-                  <div className="notes">
-                    <p>{task.notes}</p>
+                  <div className="date">
+                    <p>
+                      Scheduled:
+                      {this.createDate(task.date).slice(0, 16)}
+                    </p>
+                    <div className="done">
+                      <label htmlFor="done">
+                        Task accomplished?:
+                        <input
+                          id="done"
+                          type="checkbox"
+                          name="done"
+                          checked={task.done}
+                          readOnly
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div className="notes-name">
+                    Notes
+                    <p className="notes">{task.notes}</p>
                   </div>
                   <div>
                     <button

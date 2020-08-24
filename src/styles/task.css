@@ -7,7 +7,8 @@
   flex-direction: column;
   width: 80vw;
   margin-bottom: 10px;
-  box-shadow: 5px 1px 20px #888888;
+  box-shadow: 5px 1px 20px #888;
+  background-color: #808080;
 }
 
 .task-div {
@@ -15,6 +16,9 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
 }
 
 input::-webkit-outer-spin-button,
@@ -89,7 +93,7 @@ input::-webkit-inner-spin-button {
 .task-buttons button {
   cursor: pointer;
   width: 110px;
-  color:#000;
+  color: #000;
   box-shadow: 5px 5px 10px #678999;
 }
 
@@ -110,10 +114,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .date {
   border: 1px solid #808080;
   border-radius: 10px;
-  width: 50%;
+  width: 100%;
   margin: 10px auto;
   font-weight: bolder;
   background-color: #678999;
+  display: flex;
+  flex-direction: column;
 }
 
 .delete-task-btn,
@@ -139,8 +145,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .name {
   border: 1px solid #a3a2a2;
-  height: auto;
-  width: 90%;
+  padding: 5px;
   margin: 8px auto;
   border-radius: 10px;
+}
+
+.notes {
+  border: 1px solid #a3a2a2;
+  padding: 5px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.done {
+  padding: 12px;
+  margin: 0;
 }
