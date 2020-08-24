@@ -54,7 +54,6 @@ class App extends React.Component {
               path="/login"
               render={() => (
                 <Login />
-
               )}
             />
             <Route
@@ -73,7 +72,7 @@ class App extends React.Component {
                 )
                   : (
                     <div className="sign-in-access">
-                      <p>You need to Sign In to access this feature</p>
+                      <span>You need to Sign In to access this feature</span>
                     </div>
                   )
               )}
