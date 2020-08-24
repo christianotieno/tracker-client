@@ -7,12 +7,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "eslint": "6.8.x",
-    "eslint-config-airbnb": "18.1.x",
-    "eslint-plugin-import": "2.20.x",
-    "eslint-plugin-jsx-a11y": "6.2.x",
-    "eslint-plugin-react": "7.20.x",
-    "eslint-plugin-react-hooks": "2.5.x",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,11 +15,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "stylelint": "13.3.x",
-    "stylelint-config-standard": "20.0.x",
-    "stylelint-csstree-validator": "^1.8.0",
-    "stylelint-scss": "3.17.x"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,6 +39,16 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb": "18.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "eslint-plugin-jsx-a11y": "6.2.x",
+    "eslint-plugin-react": "7.20.x",
+    "eslint-plugin-react-hooks": "2.5.x",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "3.17.x"
   }
 }
