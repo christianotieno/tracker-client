@@ -101,7 +101,7 @@ class ScheduleForm extends React.Component {
                     ? title
                     : sched[0].title
 }
-                onChange={this.handleChangeTitle}
+                onChange={this.handleChange}
               />
             </label>
           </div>

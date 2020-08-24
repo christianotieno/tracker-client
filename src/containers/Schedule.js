@@ -48,7 +48,6 @@ class Schedule extends React.Component {
 
     const { addForm } = this.state;
     const user_id = user.user.id;
-    // console.log(user_id);
 
     createSchedule({
       user_id,
@@ -124,7 +123,7 @@ class Schedule extends React.Component {
            && !addForm
            && (
            <div
-             className="task"
+             className="add-schedules"
            >
              Click the above button to add schedules!
            </div>
