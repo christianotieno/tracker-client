@@ -197,7 +197,7 @@ class TaskForm extends React.Component {
               <button
                 type="button"
                 onClick={() => this.handleSubmit(
-                  date, done, date, name, notes,
+                  date, done, notes, name,
                 )}
               >
                 {actionToPerform}

@@ -152,6 +152,9 @@ class Tasks extends React.Component {
                   <div className="name">
                     <p>{task.name}</p>
                   </div>
+                  <div className="notes">
+                    <p>{task.notes}</p>
+                  </div>
                   <div>
                     <button
                       className="delete-task-btn"
