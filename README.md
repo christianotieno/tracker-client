@@ -55,7 +55,7 @@ git@github.com:christianotieno/tracker-client.git
 ### Install dependencies
 
 ```
-yarn add
+yarn install
 ```
 
 ### Run the app in the development mode

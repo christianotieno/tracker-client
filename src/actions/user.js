@@ -13,22 +13,25 @@ export const createUser = newUser => async dispatch => {
   try {
     response = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3001/users',
+      url: 'https://schedule-tracker-api.herokuapp.com/users',
       data: { user: newUser },
       crossdomain: true,
       withCredentials: true,
-      headers: { 'Content-Type': 'application/json' },
     });
     dispatch({
       type: CREATE_USER,
       payload: {
         ...newUser,
-        id: response.data.user.id ? response.data.user.id : null,
+        id: response.data.user.id
+          ? response.data.user.id : null,
       },
     });
     return response;
   } catch (error) {
-    dispatch({ type: CREATE_USER_ERROR, payload: response.data.errors });
+    dispatch({
+      type: CREATE_USER_ERROR,
+      payload: response.data.errors,
+    });
     return error;
   }
 };
@@ -36,7 +39,11 @@ export const createUser = newUser => async dispatch => {
 export const loginUser = user => async dispatch => {
   let response = {};
   try {
-    response = await axios.post('http://127.0.0.1:3001/login', { user }, { withCredentials: true });
+    response = await axios.post(
+      'https://schedule-tracker-api.herokuapp.com/login',
+      { user },
+      { withCredentials: true },
+    );
     dispatch({
       type: LOGIN_USER,
       payload: response.data,
@@ -56,7 +63,7 @@ export const logOutUser = () => async dispatch => {
     dispatch({ type: LOGOUT_USER, payload: {} });
     const response = await axios({
       method: 'DELETE',
-      url: 'http://127.0.0.1:3001/logout',
+      url: 'https://schedule-tracker-api.herokuapp.com/logout',
       data: { user: {} },
       crossdomain: true,
       withCredentials: true,
@@ -66,8 +73,10 @@ export const logOutUser = () => async dispatch => {
 };
 
 export const loginStatus = () => dispatch => {
-  axios.get('http://127.0.0.1:3001/logged_in',
-    { withCredentials: true })
+  axios.get(
+    'https://schedule-tracker-api.herokuapp.com/logged_in',
+    { withCredentials: true },
+  )
     .then(response => (
       response.data))
     .then(data => {
