@@ -86,13 +86,13 @@ Your app is ready to be deployed!
 
 |  APP NAME | BUILD STATUS: |
 |   :---:   |    :---:     |
-|**tracker-client** |  |
+|**tracker-client** |  [![Netlify Status](https://api.netlify.com/api/v1/badges/6c8bee4d-0e1c-40d3-9ee7-6734460d647e/deploy-status)](https://app.netlify.com/sites/react-shedule-tracker-app/deploys)|
 
 ---
 
 ## 7. Live link
 
-[Link to Live Page]()
+[Link to Live Page](https://relaxed-edison-1912f3.netlify.app/signup)
 
 ---
 
