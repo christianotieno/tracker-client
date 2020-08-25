@@ -92,7 +92,7 @@ Your app is ready to be deployed!
 
 ## 7. Live link
 
-[Link to Live Page](https://react-shedule-tracker-app.netlify.app/signup)
+[Link to Live Page](https://react-shedule-tracker-app.netlify.app)
 
 ---
 
