@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const PathComponent = ({
-  path, icon, linkText, handleClick,
+  path, linkText, handleClick,
 }) => (
   <Link to={`/${path}`} onClick={e => handleClick && handleClick(e)}>
-    <div className="icons">
-
-      <i className={`fa ${icon}`} />
+    <div className="link-text">
       <p>{linkText}</p>
     </div>
 
@@ -17,13 +15,11 @@ const PathComponent = ({
 
 PathComponent.propTypes = {
   path: PropTypes.string.isRequired,
-  icon: PropTypes.string,
   linkText: PropTypes.string,
   handleClick: PropTypes.func,
 };
 
 PathComponent.defaultProps = {
-  icon: '',
   linkText: '',
   handleClick: () => {},
 

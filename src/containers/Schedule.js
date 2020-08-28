@@ -125,7 +125,10 @@ class Schedule extends React.Component {
            <div
              className="add-schedules"
            >
-             Click the above button to add schedules!
+             <p>
+               You currently do not have schedules to track yet.
+               To create some, click the above button to add schedules!
+             </p>
            </div>
            )}
            {schedule.map(sched => (

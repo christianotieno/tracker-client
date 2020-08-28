@@ -18,7 +18,7 @@ class Login extends React.Component {
     const { user, isLogin } = this.props;
     if (user !== prevProps.user && isLogin) {
       const { history } = this.props;
-      history.push('/main');
+      history.push('/');
     }
   }
 
@@ -55,19 +55,17 @@ class Login extends React.Component {
     ), 3000);
     if (errors.length > 0) {
       return (
-        <div>
-          <ul>
-            {errors.map(
-              error => (
-                <li
-                  key={error}
-                >
-                  {error}
-                </li>
-              ),
-            )}
-          </ul>
-        </div>
+        <ul>
+          {errors.map(
+            error => (
+              <li
+                key={error}
+              >
+                {error}
+              </li>
+            ),
+          )}
+        </ul>
       );
     }
     return null;
@@ -83,9 +81,9 @@ class Login extends React.Component {
     return (
       <section className="signin-page">
         <div className="signin-page-cover">
-          <ul id="error" className="error">
+          <div id="error" className="error">
             {errors ? this.handleErrors() : null}
-          </ul>
+          </div>
         </div>
         <div className="signin-page-main">
           <h2>Log In</h2>

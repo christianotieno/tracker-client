@@ -14,7 +14,6 @@ body {
   justify-content: space-around;
   background-color: #35434c;
   color: #f7f8f9;
-  align-items: center;
 }
 
 .menu a {
@@ -51,22 +50,6 @@ body {
   cursor: pointer;
 }
 
-.icons i,
-.icons button i {
-  color: #f7f8f9;
-}
-
-.icons p,
-.icons button p {
-  margin: 0;
-  color: #f7f8f9;
-  text-decoration-line: none;
-  font-size: 9px;
-  width: 55px;
-  width: 40px;
-  text-align: center;
-}
-
-.add-tasks {
+/* .add-tasks {
   width: 100% !important;
-}
+} */

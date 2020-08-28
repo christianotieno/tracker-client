@@ -65,14 +65,14 @@ class App extends React.Component {
             />
             <Route
               exact
-              path="/main"
+              path="/"
               render={() => (
                 isLogin ? (
                   <Schedule />
                 )
                   : (
                     <div className="sign-in-access">
-                      <span>You need to Sign In to access this feature</span>
+                      <p>You need to Sign In to access this feature</p>
                     </div>
                   )
               )}

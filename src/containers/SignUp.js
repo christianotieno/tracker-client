@@ -51,7 +51,7 @@ class Signup extends Component {
      });
      if (response && response.status === 200) {
        const { history } = this.props;
-       history.push('/main');
+       history.push('/');
      } else {
        const { error } = this.props;
        this.setState({

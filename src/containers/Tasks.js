@@ -97,7 +97,7 @@ class Tasks extends React.Component {
       return scheduleTitle;
     }
     const { history } = this.props;
-    history.push('/main');
+    history.push('/');
     return null;
   }
 
@@ -115,7 +115,7 @@ class Tasks extends React.Component {
             className="go-back"
             onClick={this.displayInfo}
           >
-            <Link to="/main">
+            <Link to="/">
               <span>Go back to schedules</span>
             </Link>
           </button>

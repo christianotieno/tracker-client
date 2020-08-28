@@ -55,6 +55,20 @@
   font-weight: bolder;
 }
 
+.add-schedules {
+  color: #5b8092;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #808080;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.add-schedules p {
+  font-weight: bolder;
+}
+
 .sched-button {
   display: flex;
   justify-content: center;

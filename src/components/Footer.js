@@ -35,13 +35,10 @@ const Footer = ({
             type="button"
             onClick={displayAddForm}
           >
-            <i
-              className="fa fa-line-chart"
-            />
             <p
               className="add-tasks"
             >
-              Add Tasks
+              Create Tasks
 
             </p>
           </button>

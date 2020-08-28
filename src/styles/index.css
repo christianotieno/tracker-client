@@ -50,15 +50,14 @@
 
 .sign-in-access {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sign-in-access p {
-  font-family: 'Helvetica', sans-serif;
+  height: 30vh;
+  color: #0e5985;
+  margin: 35% 20px;
   text-align: center;
-  position: relative;
-  top: 15vh;
+  font-weight: bolder;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .route-tasks {
