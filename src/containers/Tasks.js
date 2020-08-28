@@ -82,7 +82,6 @@ class Tasks extends React.Component {
   }
 
   displayEdit = e => {
-    e.preventDefault();
     const { addEdit } = this.state;
     this.setState({
       addEdit: !addEdit,

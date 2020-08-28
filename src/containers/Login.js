@@ -30,7 +30,6 @@ class Login extends React.Component {
   }
 
   handleChangePassword = e => {
-    e.preventDefault();
     this.setState({
       password: e.target.value,
     });

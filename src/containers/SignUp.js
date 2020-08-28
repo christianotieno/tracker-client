@@ -17,14 +17,12 @@ class Signup extends Component {
   }
 
   handleChangeName = e => {
-    e.preventDefault();
     this.setState({
       name: e.target.value,
     });
   }
 
   handleChangePassword = e => {
-    e.preventDefault();
     this.setState({
       password: e.target.value,
     });
