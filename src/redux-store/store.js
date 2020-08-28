@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { sessionService } from 'redux-react-session';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer';
 
@@ -10,7 +11,7 @@ const composeEnhancers = typeof window === 'object'
 const enhancer = composeEnhancers(
   applyMiddleware(thunk),
 );
-
+const options = { refreshOnCheckAuth: true, redirectPath: '/', driver: 'COOKIES' };
 const store = createStore(rootReducer(), enhancer);
 
-export default store;
+export default sessionService.initSessionService(store, options);

@@ -31,6 +31,7 @@ class ScheduleForm extends React.Component {
   }
 
   handleChange = e => {
+    e.preventDefault();
     this.setState({
       title: e.target.value,
     });

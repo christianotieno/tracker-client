@@ -66,6 +66,7 @@ class Schedule extends React.Component {
   }
 
   displayEdit= e => {
+    e.preventDefault();
     const { editForm } = this.state;
     this.setState({
       editForm: !editForm,

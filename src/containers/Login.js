@@ -23,12 +23,14 @@ class Login extends React.Component {
   }
 
   handleChangeName = e => {
+    e.preventDefault();
     this.setState({
       name: e.target.value,
     });
   }
 
   handleChangePassword = e => {
+    e.preventDefault();
     this.setState({
       password: e.target.value,
     });
