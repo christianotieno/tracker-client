@@ -11,7 +11,7 @@ const composeEnhancers = typeof window === 'object'
 const enhancer = composeEnhancers(
   applyMiddleware(thunk),
 );
-const options = { refreshOnCheckAuth: true, redirectPath: '/', driver: 'COOKIES' };
+// const options = { refreshOnCheckAuth: true, redirectPath: '/', driver: 'COOKIES' };
 const store = createStore(rootReducer(), enhancer);
 
-export default sessionService.initSessionService(store, options);
+export default sessionService.initSessionService(store);
