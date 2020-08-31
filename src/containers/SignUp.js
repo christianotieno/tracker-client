@@ -140,11 +140,6 @@ class Signup extends Component {
                  <Link to="/login"> here</Link>
                  .
                </p>
-               <p>
-                 Or go back
-                 {' '}
-                 <Link to="/">home</Link>
-               </p>
              </form>
            </div>
          </div>

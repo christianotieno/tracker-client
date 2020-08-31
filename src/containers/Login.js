@@ -117,11 +117,6 @@ class Login extends React.Component {
               <Link to="/signup"> here</Link>
               .
             </p>
-            <p>
-              Or go back
-              {' '}
-              <Link to="/">home</Link>
-            </p>
           </form>
         </div>
       </section>

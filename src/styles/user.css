@@ -70,10 +70,11 @@
 }
 
 .error {
-  color: #f00;
+  color: #008b8b;
   text-align: center;
   list-style: none;
   margin: 0 auto;
+  margin-top: 80px;
 }
 
 .error ul {
@@ -83,7 +84,7 @@
 .error li {
   list-style: none;
   font-weight: bolder;
-  border-radius: 20px;
+  margin: 10px;
 }
 
 .add-tasks,
