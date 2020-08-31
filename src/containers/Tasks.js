@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { loginStatus } from '../actions/user';
 import TaskForm from '../components/TaskForm';
@@ -112,16 +111,6 @@ class Tasks extends React.Component {
         <div className="tasks-buttons">
           <button
             type="button"
-            className="go-back"
-            onClick={this.displayInfo}
-          >
-            <Link to="/">
-              <span>Go back to schedules</span>
-            </Link>
-          </button>
-
-          <button
-            type="button"
             className="add-task"
             onClick={this.displayInfo}
           >
@@ -168,7 +157,7 @@ class Tasks extends React.Component {
                     Notes
                     <p className="notes">{task.notes}</p>
                   </div>
-                  <div>
+                  <div className="tasks-button-div">
                     <button
                       className="delete-task-btn"
                       type="button"

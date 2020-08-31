@@ -1,0 +1,174 @@
+.navbar {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #42b5e8;
+  box-shadow: 0 1px 15px #0000004d;
+  height: 50px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+  z-index: 500;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.logo {
+  text-decoration: none;
+  color: #eee;
+}
+
+.logo:hover h2 {
+  color: #5c5c5c;
+}
+
+.go-back-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-back-btn:hover {
+  cursor: pointer;
+  border-color: #ddd;
+}
+
+.go-back-btn:focus {
+  outline: none;
+}
+
+.go-back-arrow {
+  font-size: 28px;
+  color: #eee;
+}
+
+.bars-menu {
+  font-size: 20px;
+  color: #eee;
+  border-radius: 5px;
+  z-index: 300;
+}
+
+.bars-menu:hover {
+  cursor: pointer;
+  color: #eee;
+  transition: all ease-out 0.4s;
+}
+
+.navbar-signup,
+.navbar-signin {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 5px;
+  background-color: #000000b3;
+  padding: 5px 12px;
+  border-radius: 20px;
+  transition: all ease-out 0.3s;
+}
+
+.navbar-signup:hover,
+.navbar-signin:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Hamburger menu */
+
+.nav-icon4 {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  margin: 0 5px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-icon4:focus {
+  outline: none;
+}
+
+.nav-icon4.open {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-icon4 span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #eee;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.nav-icon4 span:nth-child(1) {
+  top: 0;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.nav-icon4 span:nth-child(2) {
+  top: 8px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.nav-icon4 span:nth-child(3) {
+  top: 16px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.nav-icon4.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 3px;
+  left: 5px;
+}
+
+.nav-icon4.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.nav-icon4.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 24px;
+  left: 5px;
+}

@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Login from '../containers/Login';
@@ -15,6 +14,7 @@ import Footer from './Footer';
 import { loginStatus } from '../actions/user';
 import Header from './Header';
 import '../styles/user.css';
+import '../styles/index.css';
 
 class App extends React.Component {
   constructor() {
@@ -75,20 +75,12 @@ class App extends React.Component {
                     <div className="sign-in-access">
                       <p>
                         {' '}
-                        Welcome to the Schedule tracker! Before we proceed,
-                        you are first required to Sign In to access these awesome tracking features
-                      </p>
-                      <p>
-                        Please login
+                        Welcome to the Schedule Tracker App! Before we proceed,
                         {' '}
-                        <Link
-                          to="/login"
-                          className="login"
-                        >
-                          {' '}
-                          here!
-
-                        </Link>
+                        <br />
+                        you are first required to log in to access these awesome tracking features.
+                        <br />
+                        When you are ready, click the top right menu or the sign in links below
                       </p>
                     </div>
                   )

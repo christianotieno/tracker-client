@@ -30,29 +30,19 @@ input::-webkit-inner-spin-button {
 .tasks-buttons {
   display: flex;
   justify-content: space-around;
-  height: 50px;
-  padding: 4px;
-}
-
-.go-back {
-  background-color: #678999;
-  border-radius: 8px;
-  border: none;
-  color: #eee;
-  font-weight: bolder;
-}
-
-.go-back a {
-  color: #eee;
-  text-decoration: none;
+  height: 30px;
+  padding: 5px;
+  margin: 50px 50px;
 }
 
 .add-task {
+  cursor: pointer;
   background-color: #97e493;
   border: none;
-  color: #eee;
+  color: #008b8b;
   border-radius: 8px;
   font-weight: bolder;
+  box-shadow: 5px 5px 10px #678999;
 }
 
 .task input {
@@ -93,7 +83,7 @@ input::-webkit-inner-spin-button {
 .task-buttons button {
   cursor: pointer;
   width: 110px;
-  color: #000;
+  color: #008b8b;
   box-shadow: 5px 5px 10px #678999;
 }
 
@@ -122,16 +112,27 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-direction: column;
 }
 
+.tasks-button-div {
+  width: 100%;
+  display: flex;
+  margin: 10px;
+  padding: 0;
+  justify-content: space-around;
+}
+
 .delete-task-btn,
 .update-task-btn {
+  cursor: pointer;
   border: none;
   border-radius: 10px;
   font-weight: bolder;
-  margin: 10px;
+  width: 48%;
+  box-shadow: 5px 5px 10px #678999;
 }
 
 .update-task-btn {
   background-color: #97e493;
+  color: #008b8b;
 }
 
 .delete-task-btn {
@@ -144,10 +145,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .name {
-  border: 1px solid #a3a2a2;
-  padding: 5px;
-  margin: 8px auto;
+  margin: 10px 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  border: none;
 }
 
 .notes {

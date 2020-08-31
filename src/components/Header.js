@@ -1,10 +1,9 @@
 import React from 'react';
-import '../styles/index.css';
+import Navbar from './menu/Navbar';
 
 const Header = () => (
-  <div className="schedule-header">
-    <h1 className="header-text">Schedule Tracker</h1>
-  </div>
+
+  <Navbar />
 );
 
 export default Header;
