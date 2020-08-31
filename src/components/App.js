@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Login from '../containers/Login';
@@ -72,7 +73,23 @@ class App extends React.Component {
                 )
                   : (
                     <div className="sign-in-access">
-                      <p>You need to Sign In to access this feature</p>
+                      <p>
+                        {' '}
+                        Welcome to the Schedule tracker! Before we proceed,
+                        you are first required to Sign In to access these awesome tracking features
+                      </p>
+                      <p>
+                        Please login
+                        {' '}
+                        <Link
+                          to="/login"
+                          className="login"
+                        >
+                          {' '}
+                          here!
+
+                        </Link>
+                      </p>
                     </div>
                   )
               )}

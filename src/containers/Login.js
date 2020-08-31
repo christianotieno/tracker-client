@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginUser } from '../actions/user';
 
 class Login extends React.Component {
@@ -111,7 +112,16 @@ class Login extends React.Component {
             >
               Sign In
             </button>
-            <p>Do not have an account? Signup below.</p>
+            <p>
+              Do not have an account? Sign up
+              <Link to="/signup"> here</Link>
+              .
+            </p>
+            <p>
+              Or go back
+              {' '}
+              <Link to="/">home</Link>
+            </p>
           </form>
         </div>
       </section>

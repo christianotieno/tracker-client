@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { createUser } from '../actions/user';
 
 class Signup extends Component {
@@ -134,6 +135,16 @@ class Signup extends Component {
                >
                  Create Account
                </button>
+               <p>
+                 Already have an account? login in
+                 <Link to="/login"> here</Link>
+                 .
+               </p>
+               <p>
+                 Or go back
+                 {' '}
+                 <Link to="/">home</Link>
+               </p>
              </form>
            </div>
          </div>

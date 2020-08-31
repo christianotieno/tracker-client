@@ -50,7 +50,6 @@
 
 .sign-in-access {
   display: flex;
-  height: 30vh;
   color: #0e5985;
   margin: 35% 20px;
   text-align: center;
@@ -58,6 +57,7 @@
   flex-direction: column;
   justify-content: center;
   font-family: 'Helvetica', sans-serif;
+
 }
 
 .route-tasks {
