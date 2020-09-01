@@ -1,0 +1,185 @@
+.main {
+  font-family: 'Helvetica', sans-serif;
+  overflow-y: scroll;
+  margin-top: 50px;
+  height: 90vh;
+  border: 1px solid #000;
+}
+
+.main h3 {
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.schedule-form {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  border: 0.5px solid #dad5d5;
+  margin: 0 15px 12px 15px;
+  border-radius: 11px;
+  flex-direction: column;
+  background-color: #8090a0;
+}
+
+.one-parameter {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 4px;
+}
+
+.one-parameter label {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.one-parameter input,
+.one-parameter textarea {
+  border: 1px solid #808080;
+  width: 50vw;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-family: 'Helvetica', sans-serif;
+  padding: 4px;
+  margin-left: 3px;
+}
+
+.add-schedule {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #5b8092;
+  color: #eee;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bolder;
+}
+
+.add-schedules {
+  color: #5b8092;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #808080;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.add-schedules p {
+  font-weight: bolder;
+}
+
+.sched-button {
+  display: flex;
+  justify-content: center;
+}
+
+.one-parameter input {
+  height: 4.5vh;
+}
+
+.one-parameter textarea {
+  height: 10vh;
+}
+
+.one-parameter input:focus,
+.one-parameter textarea:focus {
+  background-color: #f0f8ff;
+}
+
+.buttons-form {
+  display: flex;
+  margin-top: 9px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.buttons-form button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+  height: 100%;
+  width: 20vw;
+  cursor: pointer;
+  padding: 10px 2px;
+}
+
+.buttons-form button:first-child {
+  background-color: #c1efbe;
+}
+
+.buttons-form button:last-child {
+  background-color: #8ed3f1;
+}
+
+.schedules {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2px 0;
+}
+
+.schedule-header {
+  font-weight: bold;
+  align-items: center;
+  width: 33%;
+  justify-content: flex-start;
+}
+
+.schedule-info {
+  padding: 10px;
+}
+
+.schedule-info a {
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.task {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.one-schedule {
+  border: 1px solid #dad5d5;
+  width: 70vw;
+  margin: 2% auto;
+  border-radius: 5px;
+  box-shadow: 5px 10px 5px #888;
+}
+
+.one-schedule .buttons {
+  background-color: #5b8092;
+}
+
+.one-schedule .buttons button {
+  width: 50%;
+  cursor: pointer;
+  height: 50px;
+  font-weight: bolder;
+}
+
+.schedule-title {
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
+
+.update-sched {
+  background-color: #42b5e8;
+  border: none;
+  color: #eee;
+}
+
+.delete-sched {
+  border: none;
+  color: #000;
+  background-color: #c1efbe;
+}

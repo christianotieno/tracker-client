@@ -1,0 +1,261 @@
+/* eslint-disable camelcase */
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import { loginStatus } from '../actions/user';
+import TaskForm from '../components/TaskForm';
+import {
+  fetchScheduleTasks,
+  createTask,
+  deleteTask,
+} from '../actions/task';
+import '../styles/task.css';
+
+class Tasks extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ID: props.match.params.id,
+      addEdit: false,
+      buttonId: '0',
+    };
+  }
+
+  componentDidMount() {
+    const {
+      user,
+      fetchScheduleTasks,
+    } = this.props;
+
+    const { ID } = this.state;
+    const userID = user.user.id;
+    fetchScheduleTasks(userID, ID);
+  }
+
+  createDate = date => {
+    const dateFormat = new Date(date);
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    return dateFormat.toUTCString(undefined, options);
+  }
+
+  displayInfo = () => {
+    const { displayForm } = this.props;
+    displayForm();
+  }
+
+  addTask = (
+    date, notes, done, name, user_id,
+  ) => {
+    const { ID } = this.state;
+    const { createTask } = this.props;
+    const schedule_id = ID;
+    createTask({
+      schedule_id, date, notes, done, name, user_id,
+
+    });
+  }
+
+  deleteTask = id => {
+    const { ID } = this.state;
+    const { deleteTask, user } = this.props;
+    const user_id = user.user.id;
+    const schedule_id = ID;
+    deleteTask({ schedule_id, id, user_id });
+  }
+
+  changeEditForm = () => {
+    const { addEdit } = this.state;
+    this.setState({
+      addEdit: !addEdit,
+    });
+  }
+
+  changeAddForm = () => {
+    const { displayForm } = this.props;
+    displayForm();
+  }
+
+  displayEdit = e => {
+    const { addEdit } = this.state;
+    this.setState({
+      addEdit: !addEdit,
+      buttonId: e.target.id,
+    });
+  }
+
+  displayTask = () => {
+    const { location } = this.props;
+    const { state } = location;
+    if (state) {
+      const { scheduleTitle } = state;
+      return scheduleTitle;
+    }
+    const { history } = this.props;
+    history.push('/');
+    return null;
+  }
+
+  render() {
+    const { addEdit, buttonId } = this.state;
+    const { tasks, addForm } = this.props;
+
+    const name = this.displayTask();
+
+    return (
+      <div className="tasks">
+        <div className="tasks-buttons">
+          <button
+            type="button"
+            className="add-task"
+            onClick={this.displayInfo}
+          >
+            Click here to add Tasks
+          </button>
+        </div>
+
+        {!addEdit && !addForm && (
+        <h3 className="title">
+          Scheduled Tasks:
+          {' '}
+          <br />
+          {' '}
+          {name && <span>{name}</span>}
+        </h3>
+        )}
+        {tasks.map(task => (
+          <div key={task.id}>
+            {!addEdit && !addForm && (
+              <div className="task">
+                <div className="task-div">
+                  <div className="name">
+                    <p>{task.name}</p>
+                  </div>
+                  <div className="date">
+                    <p>
+                      Scheduled:
+                      {this.createDate(task.date).slice(0, 16)}
+                    </p>
+                    <div className="done">
+                      <label htmlFor="done">
+                        Task accomplished?:
+                        <input
+                          id="done"
+                          type="checkbox"
+                          name="done"
+                          checked={task.done}
+                          readOnly
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div className="notes-name">
+                    Notes
+                    <p className="notes">{task.notes}</p>
+                  </div>
+                  <div className="tasks-button-div">
+                    <button
+                      className="delete-task-btn"
+                      type="button"
+                      onClick={() => this.deleteTask(task.id)}
+                    >
+                      <p>Delete task</p>
+                    </button>
+                    <button
+                      type="button"
+                      className="update-task-btn"
+                      onClick={this.displayEdit}
+                    >
+                      <p id={task.id}>Update task</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+            {addEdit && buttonId === task.id.toString() && (
+            <TaskForm
+              actionToPerform="Save Changes"
+              buttonId={buttonId}
+              changeEditForm={this.changeEditForm}
+            />
+            )}
+          </div>
+        ))}
+        {addForm
+        && (
+        <TaskForm
+          actionToPerform="Add"
+          addTask={this.addTask}
+          changeAddForm={this.changeAddForm}
+        />
+        ) }
+      </div>
+
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  user: state.user,
+  tasks: state.task,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchScheduleTasks: (
+    datauser, dataschedule,
+  ) => dispatch(
+    fetchScheduleTasks(datauser, dataschedule),
+  ),
+  loginStatus: () => dispatch(loginStatus()),
+  createTask: data => dispatch(createTask(data)),
+  deleteTask: (id, id2) => dispatch(deleteTask(id, id2)),
+});
+
+Tasks.propTypes = {
+  addForm: PropTypes.bool,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.node,
+    }).isRequired,
+  }).isRequired,
+  fetchScheduleTasks: PropTypes.func,
+  deleteTask: PropTypes.func,
+  createTask: PropTypes.func,
+  user: PropTypes.shape({
+    user: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }),
+  tasks: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+  })),
+  location: PropTypes.shape({
+    state: PropTypes.shape({ scheduleTitle: PropTypes.string }),
+  }),
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  displayForm: PropTypes.func,
+
+};
+
+Tasks.defaultProps = {
+  user: {},
+  tasks: [],
+  history: {},
+  location: {},
+  addForm: false,
+  deleteTask: () => {},
+  createTask: () => {},
+  displayForm: () => {},
+  fetchScheduleTasks: () => {},
+};
+
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Tasks));

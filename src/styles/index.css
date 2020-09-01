@@ -1,0 +1,57 @@
+.home-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.main-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.content {
+  background-color: #fff;
+  padding: 1%;
+  margin: 1%;
+  height: 8vh;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #92a7b3;
+}
+
+.task-header {
+  background-color: #f0f8ff;
+  color: #5b8092;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.sign-in-access {
+  display: flex;
+  color: #0e5985;
+  margin: 35% 20px;
+  text-align: center;
+  font-weight: bolder;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Helvetica', sans-serif;
+  margin-top: 20vh;
+  height: 50vh;
+}
+
+.sign-in-access p {
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.route-tasks {
+  overflow-y: scroll;
+  padding-bottom: 10vh;
+}
